@@ -248,15 +248,8 @@
       margin-bottom: 0.75rem;
     }
     .hero-subtitle strong { color: var(--text); font-weight: 500; }
-    .hero-typing {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--text);
-      margin-bottom: 2.5rem;
-      min-height: 1.6em;
-    }
-    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
     .hero-actions {
+      margin-top: 2.5rem;
       display: flex; gap: 1rem; flex-wrap: wrap;
     }
     .btn {
@@ -544,8 +537,6 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -554,7 +545,6 @@
         scroll-behavior: auto !important;
       }
       .reveal { opacity: 1; transform: none; }
-      .cursor { animation: none; opacity: 1; }
     }
 
     /* ── RESPONSIVE ── */
@@ -626,9 +616,6 @@
       <span class="gradient">Diaz Pacce</span>
     </h1>
     <p class="hero-subtitle" data-i18n-html="hero.subtitle"><strong>Product Engineer</strong> · Operations · Founding Engineer</p>
-    <div class="hero-typing" aria-hidden="true">
-      <span id="typed-text"></span><span class="cursor"></span>
-    </div>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">See my work</a>
       <a href="/CV_Ignacio_Diaz_Pacce.pdf" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="hero.cta2">Download CV</a>
@@ -997,12 +984,6 @@
       'hero.subtitle': '<strong>Product Engineer</strong> · Operations · Founding Engineer',
       'hero.cta1': 'See my work',
       'hero.cta2': 'Download CV',
-      'hero.phrases': [
-        'Building products and the systems that make them.',
-        'Flutter · BLE · STM32 · Process optimization.',
-        'From firmware to the shop floor.',
-        'Excellence in process is a competitive moat.',
-      ],
 
       'about.label': 'About',
       'about.title': 'I build products and the systems that make them',
@@ -1125,12 +1106,6 @@
       'hero.subtitle': '<strong>Product Engineer</strong> · Operaciones · Founding Engineer',
       'hero.cta1': 'Ver proyectos',
       'hero.cta2': 'Descargar CV',
-      'hero.phrases': [
-        'Construyo productos y los sistemas que los producen.',
-        'Flutter · BLE · STM32 · Optimización de procesos.',
-        'Del firmware a la planta.',
-        'La excelencia de procesos es ventaja competitiva.',
-      ],
 
       'about.label': 'Sobre mí',
       'about.title': 'Construyo productos y los sistemas que los hacen posibles',
@@ -1253,12 +1228,6 @@
       'hero.subtitle': '<strong>Product Engineer</strong> · Operações · Founding Engineer',
       'hero.cta1': 'Ver projetos',
       'hero.cta2': 'Baixar CV',
-      'hero.phrases': [
-        'Construo produtos e os sistemas que os produzem.',
-        'Flutter · BLE · STM32 · Otimização de processos.',
-        'Do firmware ao chão de fábrica.',
-        'Excelência de processo é vantagem competitiva.',
-      ],
 
       'about.label': 'Sobre mim',
       'about.title': 'Construo produtos e os sistemas que os tornam possíveis',
@@ -1394,8 +1363,6 @@
 
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    restartTyping();
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1422,38 +1389,6 @@
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
-
-  /* ──────── Typing effect (respects reduced motion) ──────── */
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let typingTimeout = null;
-  let pi = 0, ci = 0, deleting = false;
-  const typedEl = document.getElementById('typed-text');
-
-  function type() {
-    const phrases = i18n[currentLang]['hero.phrases'];
-    const phrase = phrases[pi % phrases.length];
-    if (!deleting) {
-      typedEl.textContent = phrase.slice(0, ++ci);
-      if (ci === phrase.length) { deleting = true; typingTimeout = setTimeout(type, 2200); return; }
-    } else {
-      typedEl.textContent = phrase.slice(0, --ci);
-      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
-    }
-    typingTimeout = setTimeout(type, deleting ? 38 : 68);
-  }
-
-  function restartTyping() {
-    if (typingTimeout) clearTimeout(typingTimeout);
-    pi = 0; ci = 0; deleting = false;
-    if (!typedEl) return;
-    if (prefersReduced) {
-      const phrases = i18n[currentLang]['hero.phrases'];
-      typedEl.textContent = phrases[0];
-      return;
-    }
-    typedEl.textContent = '';
-    typingTimeout = setTimeout(type, 600);
-  }
 
   /* ──────── Scroll reveal ──────── */
   const observer = new IntersectionObserver((entries) => {
