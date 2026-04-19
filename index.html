@@ -2,1402 +2,431 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ignacio Diaz Pacce — Product Engineer focused on operations and process excellence. Building products and the systems that make them: Flutter, BLE, STM32, production optimization.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Ignacio Diaz Pacce — Electronics Engineer focused on product development, firmware, mobile apps and process optimization.">
   <meta name="author" content="Ignacio Diaz Pacce">
-  <meta name="keywords" content="Product Engineer, Operations, Founding Engineer, Flutter, BLE, STM32, Process Optimization, Electronics Engineer, Buenos Aires, Argentina">
-  <meta name="theme-color" content="#0d0f14">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ignaciodiazpacce.com.ar/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d0f14'/%3E%3Ctext x='50%25' y='58%25' font-size='54' font-family='monospace' fill='%234f9cf9' text-anchor='middle' font-weight='bold'%3Ei%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f5f1e8">
+  <title>Ignacio Diaz Pacce — Electronics Engineer</title>
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ignaciodiazpacce.com.ar/">
-  <meta property="og:title" content="Ignacio Diaz Pacce — Product Engineer · Operations · Systems">
-  <meta property="og:description" content="Electronics engineer building products and the production systems behind them. Flutter, BLE, STM32, process optimization.">
-  <meta property="og:image" content="https://ignaciodiazpacce.com.ar/og-image.png">
-  <meta property="og:locale" content="en_US">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ignacio Diaz Pacce — Product Engineer">
-  <meta name="twitter:description" content="Building products and the systems that make them.">
-  <meta name="twitter:image" content="https://ignaciodiazpacce.com.ar/og-image.png">
-
-  <title>Ignacio Diaz Pacce — Product Engineer · Operations · Systems</title>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ignacio Diaz Pacce",
-    "jobTitle": "Product Engineer",
-    "description": "Electronics engineer focused on product development and operational excellence. Building mobile + embedded products and optimizing the production systems behind them.",
-    "url": "https://ignaciodiazpacce.com.ar/",
-    "email": "ignaciodiazpacce6@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Buenos Aires",
-      "addressCountry": "AR"
-    },
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Electromedicina Morales"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Universidad Nacional del Nordeste (UNNE)"
-    },
-    "knowsAbout": [
-      "Product Engineering",
-      "Process Optimization",
-      "Flutter",
-      "Bluetooth Low Energy",
-      "STM32",
-      "Embedded Systems",
-      "PCB Design",
-      "Production Operations",
-      "Additive Manufacturing"
-    ],
-    "sameAs": [
-      "https://linkedin.com/in/ignaciodiazpacce",
-      "https://github.com/diazpacceignacio6-spec"
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #0d0f14;
-      --bg2:      #13161d;
-      --bg3:      #1a1e28;
-      --accent:   #4f9cf9;
-      --accent2:  #7c3aed;
-      --text:     #e2e8f0;
-      --muted:    #8a95ab;
-      --border:   #1e2535;
-      --radius:   12px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 64px;
-      background: transparent;
-      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s;
-    }
-    nav.scrolled {
-      background: rgba(13,15,20,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      font-size: 1rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    .nav-logo span { color: var(--text); }
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--muted);
-      transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 1px; background: var(--accent);
-      transform: scaleX(0); transition: transform 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-    .nav-cta {
-      padding: 0.45rem 1.1rem;
-      border: 1px solid var(--accent);
-      border-radius: 6px;
-      color: var(--accent) !important;
-      font-size: 0.825rem !important;
-      transition: background 0.2s, color 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
-    .nav-cta::after { display: none !important; }
-
-    /* ── HAMBURGER ── */
-    .hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      width: 32px; height: 32px; padding: 0;
-      position: relative;
-    }
-    .hamburger span {
-      display: block; position: absolute; left: 6px;
-      width: 20px; height: 2px; background: var(--text);
-      border-radius: 1px; transition: transform 0.3s, opacity 0.3s, top 0.3s;
-    }
-    .hamburger span:nth-child(1) { top: 10px; }
-    .hamburger span:nth-child(2) { top: 15px; }
-    .hamburger span:nth-child(3) { top: 20px; }
-    .hamburger.open span:nth-child(1) { top: 15px; transform: rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { top: 15px; transform: rotate(-45deg); }
-
-    /* ── LANG SWITCHER ── */
-    .lang-switcher {
-      display: flex; align-items: center; gap: 0.35rem;
-      padding: 0.25rem;
-      background: rgba(26,30,40,0.6);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-    }
-    .lang-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px;
-      background: transparent; border: none; border-radius: 50%;
-      cursor: pointer; padding: 0;
-      opacity: 0.5; filter: grayscale(30%);
-      transition: opacity 0.2s, filter 0.2s, transform 0.2s;
-      overflow: hidden;
-    }
-    .lang-btn img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; display: block; }
-    .lang-btn:hover { opacity: 0.85; filter: none; transform: scale(1.08); }
-    .lang-btn.active { opacity: 1; filter: none; box-shadow: 0 0 0 2px var(--accent); }
-
-    /* ── HERO ── */
-    #hero {
+      background: #f5f1e8;
+      color: #1a1a1a;
+      line-height: 1.5;
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 10vw, 8rem);
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .hero-grid {
-      position: absolute; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(79,156,249,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79,156,249,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 1rem;
+      height: 60px;
+      background: transparent;
+      transition: all 0.3s ease;
     }
-    .hero-glow {
-      position: absolute; top: 20%; left: 30%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(79,156,249,0.08) 0%, transparent 70%);
-      pointer-events: none;
+
+    nav.scrolled {
+      background: rgba(245, 241, 232, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2d9ce;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 820px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.25rem;
+      background: rgba(237, 231, 216, 0.6);
+      padding: 0.2rem;
+      border-radius: 40px;
+      border: 1px solid #e2d9ce;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #7a7265;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: #b91c1c;
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 1.2rem;
+    }
+
+    .hero-right {
+      order: -1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-left {
+      text-align: center;
+    }
+
+    .badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem; color: var(--accent);
-      background: rgba(79,156,249,0.08);
-      border: 1px solid rgba(79,156,249,0.2);
-      padding: 0.35rem 0.85rem; border-radius: 999px;
-      margin-bottom: 1.5rem;
+      font-size: 0.65rem;
+      color: #b91c1c;
+      background: rgba(185, 28, 28, 0.08);
+      border: 1px solid rgba(185, 28, 28, 0.2);
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-    .hero-name {
-      font-size: clamp(2.8rem, 6vw, 5rem);
+
+    h1 {
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: -2px;
-      line-height: 1.05;
-      margin-bottom: 1rem;
-    }
-    .hero-name .gradient {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--muted);
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-    }
-    .hero-subtitle strong { color: var(--text); font-weight: 500; }
-    .hero-actions {
-      margin-top: 2.5rem;
-      display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.75rem; border-radius: 8px;
-      font-size: 0.925rem; font-weight: 500;
-      text-decoration: none; cursor: pointer; border: none;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: var(--accent); color: var(--bg);
-      box-shadow: 0 4px 24px rgba(79,156,249,0.3);
-    }
-    .btn-primary:hover { box-shadow: 0 8px 32px rgba(79,156,249,0.45); }
-    .btn-outline {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(79,156,249,0.05); }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 8rem);
-    }
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; color: var(--accent); letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 700; letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-    .section-desc {
-      color: var(--muted); max-width: 680px;
-      font-size: 1rem; margin-bottom: 3.5rem;
-    }
-
-    /* ── ABOUT ── */
-    #about { background: var(--bg2); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: start;
-    }
-    .about-text p {
-      color: var(--muted); margin-bottom: 1.25rem; font-size: 1rem;
-    }
-    .about-text p strong { color: var(--text); }
-    .thesis {
-      border-left: 2px solid var(--accent);
-      padding: 0.5rem 0 0.5rem 1.25rem;
-      margin: 1.5rem 0;
-      font-style: italic; color: var(--text);
-      font-size: 1.05rem; line-height: 1.5;
-    }
-    .about-stats {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .stat-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .stat-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .stat-number {
-      font-size: 2rem; font-weight: 700;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .stat-label { font-size: 0.825rem; color: var(--muted); margin-top: 0.25rem; }
-
-    /* ── STORY ── */
-    .story-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .story-chapter {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .story-chapter:hover { border-color: rgba(79,156,249,0.4); transform: translateY(-3px); }
-    .story-step {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; color: var(--accent); letter-spacing: 1px;
+      letter-spacing: -1px;
+      line-height: 1.15;
       margin-bottom: 0.5rem;
     }
-    .story-chapter h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .story-chapter p { color: var(--muted); font-size: 0.925rem; line-height: 1.55; }
-    .story-chapter p strong { color: var(--text); font-weight: 500; }
 
-    /* ── EXPERIENCE ── */
-    #experience { background: var(--bg2); }
-    .timeline { position: relative; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border));
-    }
-    .timeline-item {
-      padding-left: 2.5rem; margin-bottom: 3rem;
-      position: relative;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute; left: -5px; top: 6px;
-      width: 11px; height: 11px;
-      background: var(--accent); border-radius: 50%;
-      box-shadow: 0 0 0 3px var(--bg2), 0 0 0 4px rgba(79,156,249,0.3);
-    }
-    .timeline-meta {
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 0.5rem;
-    }
-    .timeline-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; color: var(--accent);
-      background: rgba(79,156,249,0.08);
-      border: 1px solid rgba(79,156,249,0.15);
-      padding: 0.2rem 0.65rem; border-radius: 4px;
-    }
-    .timeline-company { font-size: 0.825rem; color: var(--muted); }
-    .timeline-role { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .timeline-desc { color: var(--muted); font-size: 0.95rem; max-width: 720px; }
-    .timeline-desc ul { list-style: none; margin-top: 0.75rem; }
-    .timeline-desc li {
-      position: relative; padding-left: 1.25rem; margin-bottom: 0.4rem;
-    }
-    .timeline-desc li::before {
-      content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.85rem;
-    }
-    .timeline-desc strong { color: var(--text); font-weight: 500; }
-    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-    .tag {
-      font-size: 0.75rem; padding: 0.2rem 0.65rem;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 4px; color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .tag:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-    .skill-category {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .skill-category:hover { border-color: rgba(79,156,249,0.4); transform: translateY(-3px); }
-    .skill-cat-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .skill-cat-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem; }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; padding: 0.3rem 0.75rem;
-      background: rgba(79,156,249,0.08); border: 1px solid rgba(79,156,249,0.15);
-      border-radius: 999px; color: var(--accent);
+    h1 .accent {
+      color: #b91c1c;
     }
 
-    /* ── PROJECTS ── */
-    #projects { background: var(--bg2); }
-    .track-heading {
-      font-family: 'JetBrains Mono', monospace;
+    .subtitle {
+      font-size: 0.9rem;
+      color: #7a7265;
+      margin-bottom: 0.25rem;
+    }
+
+    .location {
       font-size: 0.8rem;
-      color: var(--text);
-      letter-spacing: 1px;
-      margin: 2.5rem 0 1.25rem;
-      display: flex; align-items: center; gap: 0.6rem;
+      color: #7a7265;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
     }
-    .track-heading:first-of-type { margin-top: 0; }
-    .track-heading::before {
-      content: ''; width: 24px; height: 1px; background: var(--accent);
+
+    .description {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #1a1a1a;
+      margin: 0.75rem 0;
+      text-align: left;
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.75rem;
-      display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      border-color: rgba(79,156,249,0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-    .project-icon { font-size: 1.75rem; }
-    .project-status {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem; padding: 0.25rem 0.7rem;
-      border-radius: 999px; letter-spacing: 0.5px;
-    }
-    .status-wip {
-      background: rgba(249,180,79,0.1);
-      color: #f9b44f;
-      border: 1px solid rgba(249,180,79,0.25);
-    }
-    .status-live {
-      background: rgba(79,249,156,0.08);
-      color: #4fd99c;
-      border: 1px solid rgba(79,249,156,0.2);
-    }
-    .status-archived {
-      background: rgba(138,149,171,0.08);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-    .project-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .project-context { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent); margin-bottom: 0.75rem; letter-spacing: 0.5px; }
-    .project-desc { color: var(--muted); font-size: 0.925rem; flex: 1; margin-bottom: 1.25rem; line-height: 1.55; }
-    .project-desc strong { color: var(--text); font-weight: 500; }
-    .project-phases { list-style: none; margin: 0.5rem 0 1rem; }
-    .project-phases li {
-      position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem;
-      color: var(--muted); font-size: 0.9rem;
-    }
-    .project-phases li::before {
-      content: attr(data-phase);
-      position: absolute; left: 0; top: 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem; color: var(--accent);
+
+    .description strong {
+      color: #b91c1c;
       font-weight: 500;
     }
-    .project-phases strong { color: var(--text); font-weight: 500; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .project-tag {
-      font-size: 0.7rem; font-family: 'JetBrains Mono', monospace;
-      padding: 0.2rem 0.6rem;
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 4px; color: var(--muted);
+
+    /* Contacto y botones juntos */
+    .contact-section {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2d9ce;
     }
 
-    /* ── CONTACT ── */
-    #contact { text-align: center; }
-    .contact-wrapper { max-width: 640px; margin: 0 auto; }
-    .contact-intro { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; }
-    .contact-links {
-      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 3rem;
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: center;
     }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #b91c1c;
+      color: #f5f1e8;
+    }
+
+    .btn-primary:hover {
+      background: #9a3412;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #d4cbb8;
+      color: #1a1a1a;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: #b91c1c;
+      color: #b91c1c;
+      transform: translateY(-2px);
+    }
+
     .contact-link {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.65rem 1.4rem;
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; text-decoration: none; color: var(--text);
-      font-size: 0.875rem; font-weight: 500;
-      transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      background: #ede7d8;
+      border: 1px solid #e2d9ce;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
     }
+
     .contact-link:hover {
-      border-color: var(--accent); color: var(--accent);
-      background: rgba(79,156,249,0.06); transform: translateY(-2px);
+      border-color: #b91c1c;
+      color: #b91c1c;
+      transform: translateY(-2px);
     }
 
-    /* ── FOOTER ── */
+    .contact-link img {
+      width: 16px;
+      height: 16px;
+    }
+
     footer {
-      text-align: center; padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem; color: var(--muted);
-    }
-    .footer-langs {
-      margin-bottom: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.5px;
-    }
-    .footer-langs span { color: var(--text); }
-    footer .sig span { color: var(--accent); }
-
-    /* ── ANIMATIONS (respect reduced motion) ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal { opacity: 1; transform: none; }
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid #e2d9ce;
+      font-size: 0.7rem;
+      color: #7a7265;
+      margin-top: auto;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .nav-links {
-        position: fixed;
-        top: 64px; left: 0; right: 0;
-        flex-direction: column;
-        gap: 0;
-        background: rgba(13,15,20,0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 2rem;
-        transform: translateY(-120%);
-        transition: transform 0.3s ease;
+    @media (min-width: 768px) {
+      nav {
+        padding: 0 2rem;
+        height: 64px;
       }
-      .nav-links.open { transform: translateY(0); }
-      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-      .nav-links li:last-child { border-bottom: none; }
-      .nav-links a { font-size: 1rem; }
-      .nav-cta {
-        display: inline-block; margin-top: 0.5rem;
+
+      .lang-switcher {
+        gap: 0.5rem;
+        padding: 0.25rem;
       }
-      .hamburger { display: block; }
+
+      .lang-btn {
+        padding: 0.25rem 0.7rem;
+        font-size: 0.75rem;
+      }
+
+      .hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        padding: 5rem 2rem;
+      }
+
+      .hero-right {
+        order: 0;
+        flex: 0.8;
+      }
+
+      .hero-photo {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        border-radius: 30px;
+      }
+
+      .hero-left {
+        flex: 1;
+        text-align: left;
+      }
+
+      .location {
+        justify-content: flex-start;
+      }
+
+      .description {
+        text-align: left;
+      }
+
+      .contact-row {
+        align-items: flex-start;
+      }
+
+      .contact-buttons {
+        justify-content: flex-start;
+      }
     }
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    @media (min-width: 1024px) {
+      .hero-photo {
+        max-width: 360px;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ──────────────────── NAV ──────────────────── -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">idp<span>.dev</span></a>
-  <div class="nav-right">
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" data-i18n="nav.about">About</a></li>
-      <li><a href="#story" data-i18n="nav.story">Story</a></li>
-      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
-      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="lang-switcher" role="group" aria-label="Language">
-      <button class="lang-btn" data-lang="en" aria-label="English">
-        <img src="https://flagcdn.com/w40/us.png" alt="EN" loading="lazy">
-      </button>
-      <button class="lang-btn" data-lang="es" aria-label="Español">
-        <img src="https://flagcdn.com/w40/ar.png" alt="ES" loading="lazy">
-      </button>
-      <button class="lang-btn" data-lang="pt" aria-label="Português">
-        <img src="https://flagcdn.com/w40/br.png" alt="PT" loading="lazy">
-      </button>
-    </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="pt">PT</button>
   </div>
 </nav>
 
-<!-- ──────────────────── HERO ──────────────────── -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-tag" data-i18n="hero.badge">Actively seeking new roles</div>
-    <h1 class="hero-name">
-      Ignacio<br>
-      <span class="gradient">Diaz Pacce</span>
-    </h1>
-    <p class="hero-subtitle" data-i18n-html="hero.subtitle"><strong>Product Engineer</strong> · Operations · Founding Engineer</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">See my work</a>
-      <a href="/CV_Ignacio_Diaz_Pacce.pdf" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="hero.cta2">Download CV</a>
-    </div>
+<section class="hero">
+  <div class="hero-right">
+    <img src="foto-perfil.jpg" alt="Ignacio Diaz Pacce" class="hero-photo">
   </div>
-</section>
-
-<!-- ──────────────────── ABOUT ──────────────────── -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <div class="section-label" data-i18n="about.label">About</div>
-      <h2 class="section-title" data-i18n="about.title">I build products and the systems that make them</h2>
-      <p data-i18n-html="about.p1"><strong>Electronics Engineer</strong> with 3+ years shipping products where hardware, firmware and software meet operations. Equally comfortable writing a Flutter app, routing a PCB, or redesigning a production line.</p>
-      <p data-i18n-html="about.p2">My focus is the <strong>full product lifecycle</strong> — discovery, build, validation and transfer to production. I scaled production 3×, cut technical documentation time by 90%, and led outsourcing that reduced costs up to 5×.</p>
-      <div class="thesis" data-i18n="about.thesis">"Excellence in processes and execution is the foundation of long-term success — for companies and for countries."</div>
-      <div style="margin-top:1.75rem;">
-        <a href="#contact" class="btn btn-outline" style="font-size:0.85rem;" data-i18n="about.cta">Let's talk →</a>
-      </div>
+  <div class="hero-left">
+    <div class="badge" data-i18n="badge">Product Engineer · Mobile & Firmware</div>
+    <h1>Ignacio <span class="accent">Diaz Pacce</span></h1>
+    <div class="subtitle" data-i18n="subtitle">Electronics Engineer · Product Development & Project Management</div>
+    <div class="location">📍 Buenos Aires, Argentina</div>
+    <div class="description" data-i18n="description1">
+      Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.
     </div>
-    <div class="about-stats reveal reveal-delay-2">
-      <div class="stat-card">
-        <div class="stat-number">3+</div>
-        <div class="stat-label" data-i18n="stats.years">Years of experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">30+</div>
-        <div class="stat-label" data-i18n="stats.products">Industrial designs shipped</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">90%</div>
-        <div class="stat-label" data-i18n="stats.optimization">Process time reduction</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3×</div>
-        <div class="stat-label" data-i18n="stats.scale">Production scale-up led</div>
+    <div class="description" data-i18n="description2">
+      Currently building a <strong>Flutter mobile app</strong> and <strong>STM32 firmware</strong> for a veterinary electrocardiograph, integrated into a hub architecture to scale toward clinical traceability.
+    </div>
+
+    <div class="contact-section">
+      <div class="contact-row">
+        <div class="contact-buttons">
+          <a href="https://linkedin.com/in/ignaciodiazpacce" class="contact-link" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(26%) sepia(80%) saturate(500%) hue-rotate(340deg);">
+            LinkedIn
+          </a>
+          <a href="mailto:ignaciodiazpacce6@gmail.com" class="contact-link">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
+            Email
+          </a>
+          <a href="https://wa.me/543777473006" class="contact-link" target="_blank">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
+            WhatsApp
+          </a>
+          <a href="./CV_Ignacio_Diaz_Pacce.pdf" class="btn btn-outline" target="_blank" data-i18n="cv_btn">Download CV</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ──────────────────── STORY ──────────────────── -->
-<section id="story">
-  <div class="section-label reveal" data-i18n="story.label">My Story</div>
-  <h2 class="section-title reveal" data-i18n="story.title">From disassembling radios to designing production systems</h2>
-  <p class="section-desc reveal" data-i18n="story.desc">A self-made path into engineering — no technical family background, just curiosity that kept compounding.</p>
-
-  <div class="story-grid">
-    <div class="story-chapter reveal">
-      <div class="story-step" data-i18n="story.s1.step">01 · Curiosity</div>
-      <h3 data-i18n="story.s1.title">Taking things apart</h3>
-      <p data-i18n-html="story.s1.body">As a kid I was constantly disassembling radios, remotes and DVD players; modifying software on PC and mobile; building things like a <strong>bike light from LEDs and salvaged parts</strong>. No engineers at home — my father is a dentist, my mother a teacher — just a pull I couldn't ignore.</p>
-    </div>
-    <div class="story-chapter reveal reveal-delay-1">
-      <div class="story-step" data-i18n="story.s2.step">02 · Decision</div>
-      <h3 data-i18n="story.s2.title">Electronics, by design</h3>
-      <p data-i18n-html="story.s2.body">A vocational test pointed me to electronics, and the match stuck. I chose <strong>UNNE in Corrientes</strong> mostly for proximity — 220 km from home — but what I'd find there reshaped how I see engineering.</p>
-    </div>
-    <div class="story-chapter reveal reveal-delay-2">
-      <div class="story-step" data-i18n="story.s3.step">03 · Formation</div>
-      <h3 data-i18n="story.s3.title">Systems over circuits</h3>
-      <p data-i18n-html="story.s3.body">A young <strong>Electrotechnics II professor</strong> flipped my view: engineering wasn't about components, it was about systems — flows, dependencies, feedback loops. That mindset carried me through Bioinstrumentation, DSP and the hard jump from <strong>Goya to Buenos Aires</strong>.</p>
-    </div>
-    <div class="story-chapter reveal reveal-delay-3">
-      <div class="story-step" data-i18n="story.s4.step">04 · Today</div>
-      <h3 data-i18n="story.s4.title">Building fluent systems</h3>
-      <p data-i18n-html="story.s4.body">I design products and the processes that ship them. Obsessed with <strong>internal excellence as a driver of external performance</strong>, operational clarity, and making technology accessible — in tools, in organizations, in education.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ──────────────────── EXPERIENCE ──────────────────── -->
-<section id="experience">
-  <div class="section-label reveal" data-i18n="exp.label">Experience</div>
-  <h2 class="section-title reveal" data-i18n="exp.title">Where I've owned the outcome</h2>
-  <p class="section-desc reveal" data-i18n="exp.desc">Roles where I took end-to-end ownership — from product to process, from firmware to end user.</p>
-
-  <div class="timeline">
-
-    <div class="timeline-item reveal">
-      <div class="timeline-meta">
-        <span class="timeline-date" data-i18n="exp.e1.date">Nov 2024 — Present</span>
-        <span class="timeline-company">Electromedicina Morales · Buenos Aires</span>
-      </div>
-      <div class="timeline-role" data-i18n="exp.e1.role">Mobile &amp; Product Engineer</div>
-      <div class="timeline-desc">
-        <p data-i18n="exp.e1.intro">Developing connected biomedical devices (aesthetics, kinesiology, veterinary) across electronics, firmware, mobile software and production.</p>
-        <ul>
-          <li data-i18n-html="exp.e1.b1">Building <strong>evet_hub</strong> — Flutter/BLE app to manage multiple veterinary biomedical devices, starting with an electrocardiograph.</li>
-          <li data-i18n-html="exp.e1.b2">Led the <strong>Bluetooth Classic → BLE migration</strong>, improving iOS/Android compatibility and stability.</li>
-          <li data-i18n-html="exp.e1.b3">Launched a <strong>3-phase manufacturing optimization initiative</strong>: Interactive BOM automation, JLCPCB outsourcing, operator-friendly firmware flashing tool.</li>
-          <li data-i18n-html="exp.e1.b4">Reactivated <strong>Redmine</strong> and standardized repos (Bitbucket, KiCad) for team-wide traceability.</li>
-        </ul>
-      </div>
-      <div class="timeline-tags">
-        <span class="tag">Flutter</span>
-        <span class="tag">Dart</span>
-        <span class="tag">BLE</span>
-        <span class="tag">STM32</span>
-        <span class="tag">KiCad</span>
-        <span class="tag">Process Optimization</span>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal reveal-delay-1">
-      <div class="timeline-meta">
-        <span class="timeline-date" data-i18n="exp.e2.date">Apr 2022 — Oct 2024</span>
-        <span class="timeline-company">StandFit Equipment · Goya, Corrientes</span>
-      </div>
-      <div class="timeline-role" data-i18n="exp.e2.role">Co-founder &amp; Production Lead</div>
-      <div class="timeline-desc">
-        <p data-i18n="exp.e2.intro">Built the full operational infrastructure of a fitness equipment company from scratch — product, processes, inventory, controls.</p>
-        <ul>
-          <li data-i18n-html="exp.e2.b1">Designed a portfolio of <strong>30+ machine models</strong>, iterating on Voice of Customer.</li>
-          <li data-i18n-html="exp.e2.b2"><strong>Tripled</strong> production capacity (1–2 → 6 machines/month) with the same headcount via a 6-station layout.</li>
-          <li data-i18n-html="exp.e2.b3">Digitized inventory (<strong>100+ SKUs</strong>) with barcode; built production orders, BOM costing, purchase planning and preventive maintenance from zero.</li>
-          <li data-i18n-html="exp.e2.b4">Halved component costs by replacing machining with <strong>additive manufacturing</strong>.</li>
-        </ul>
-      </div>
-      <div class="timeline-tags">
-        <span class="tag">Operations</span>
-        <span class="tag">Supply Chain</span>
-        <span class="tag">BOM Costing</span>
-        <span class="tag">Fusion 360</span>
-        <span class="tag">3D Printing</span>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal reveal-delay-2">
-      <div class="timeline-meta">
-        <span class="timeline-date" data-i18n="exp.e3.date">2021 — 2022</span>
-        <span class="timeline-company">Voltu Motor · UNNE Corrientes</span>
-      </div>
-      <div class="timeline-role" data-i18n="exp.e3.role">PCB Designer &amp; Research Fellow</div>
-      <div class="timeline-desc">
-        <p data-i18n-html="exp.e3.intro">Designed electronic boards to test <strong>BMS for electric mobility</strong> (Voltu). In parallel at UNNE: research on grid-connected photovoltaic control systems and teaching assistant for Electrotechnics II.</p>
-      </div>
-      <div class="timeline-tags">
-        <span class="tag">KiCad</span>
-        <span class="tag">PCB Design</span>
-        <span class="tag">BMS</span>
-        <span class="tag">PV Systems</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ──────────────────── SKILLS ──────────────────── -->
-<section id="skills">
-  <div class="section-label reveal" data-i18n="skills.label">Skills</div>
-  <h2 class="section-title reveal" data-i18n="skills.title">Tech &amp; tools</h2>
-  <p class="section-desc reveal" data-i18n="skills.desc">The stack I use daily — from embedded firmware to products in production.</p>
-
-  <div class="skills-grid">
-    <div class="skill-category reveal">
-      <div class="skill-cat-icon">🧭</div>
-      <div class="skill-cat-title" data-i18n="skills.product">Product &amp; Operations</div>
-      <div class="skill-list">
-        <span class="skill-pill" data-i18n="skills.product.1">Product Lifecycle</span>
-        <span class="skill-pill" data-i18n="skills.product.2">Process Optimization</span>
-        <span class="skill-pill" data-i18n="skills.product.3">BOM Costing</span>
-        <span class="skill-pill" data-i18n="skills.product.4">Supply Chain</span>
-        <span class="skill-pill" data-i18n="skills.product.5">Change Management</span>
-        <span class="skill-pill" data-i18n="skills.product.6">Root Cause Analysis</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal reveal-delay-1">
-      <div class="skill-cat-icon">📱</div>
-      <div class="skill-cat-title" data-i18n="skills.mobile">Mobile &amp; Embedded</div>
-      <div class="skill-list">
-        <span class="skill-pill">Flutter</span>
-        <span class="skill-pill">Dart</span>
-        <span class="skill-pill">C / C++</span>
-        <span class="skill-pill">STM32</span>
-        <span class="skill-pill">ESP32</span>
-        <span class="skill-pill">FreeRTOS</span>
-        <span class="skill-pill">BLE</span>
-        <span class="skill-pill">MQTT</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal reveal-delay-2">
-      <div class="skill-cat-icon">⚡</div>
-      <div class="skill-cat-title" data-i18n="skills.electronics">Electronics &amp; PCB</div>
-      <div class="skill-list">
-        <span class="skill-pill">KiCad</span>
-        <span class="skill-pill">Proteus</span>
-        <span class="skill-pill">LTspice</span>
-        <span class="skill-pill">UART / SPI / I2C</span>
-        <span class="skill-pill">JLCPCB</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal reveal-delay-3">
-      <div class="skill-cat-icon">🤖</div>
-      <div class="skill-cat-title" data-i18n="skills.automation">Automation &amp; Backend</div>
-      <div class="skill-list">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">Google Apps Script</span>
-        <span class="skill-pill">Sheets API</span>
-        <span class="skill-pill">Git / Bitbucket</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-cat-icon">🧊</div>
-      <div class="skill-cat-title" data-i18n="skills.cad">CAD &amp; Manufacturing</div>
-      <div class="skill-list">
-        <span class="skill-pill">Fusion 360</span>
-        <span class="skill-pill">SolidWorks</span>
-        <span class="skill-pill">OrcaSlicer</span>
-        <span class="skill-pill" data-i18n="skills.print3d">3D Printing (PETG/PLA/Flex)</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ──────────────────── PROJECTS ──────────────────── -->
-<section id="projects">
-  <div class="section-label reveal" data-i18n="projects.label">Projects</div>
-  <h2 class="section-title reveal" data-i18n="projects.title">Selected work</h2>
-  <p class="section-desc reveal" data-i18n="projects.desc">Split into two tracks that match how I actually work: engineering and operations.</p>
-
-  <div class="track-heading reveal" data-i18n="projects.track1">🔧 Engineering</div>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-header">
-        <div class="project-icon">🩺</div>
-        <span class="project-status status-wip" data-i18n="projects.evet.status">🚧 In development</span>
-      </div>
-      <div class="project-context" data-i18n="projects.evet.ctx">Electromedicina Morales · 2024 — now</div>
-      <div class="project-title" data-i18n="projects.evet.title">evet_hub — Veterinary Biomedical Hub</div>
-      <p class="project-desc" data-i18n-html="projects.evet.desc">Flutter/BLE concentrator for veterinary electromedicine. Modular architecture starting with an <strong>electrocardiograph</strong> and designed to scale to new devices. Roadmap: patient traceability.</p>
-      <div class="project-tags">
-        <span class="project-tag">Flutter</span>
-        <span class="project-tag">Dart</span>
-        <span class="project-tag">BLE</span>
-        <span class="project-tag">iOS/Android</span>
-        <span class="project-tag">STM32</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-header">
-        <div class="project-icon">🔋</div>
-        <span class="project-status status-archived" data-i18n="projects.bms.status">📁 Case study</span>
-      </div>
-      <div class="project-context" data-i18n="projects.bms.ctx">Voltu Motor · 2021 — 2022</div>
-      <div class="project-title" data-i18n="projects.bms.title">BMS Testing Hardware</div>
-      <p class="project-desc" data-i18n-html="projects.bms.desc">Electronic boards to test <strong>Battery Management Systems</strong> in electric mobility. Electrical validation, KiCad routing and 3D modeling of housings.</p>
-      <div class="project-tags">
-        <span class="project-tag">KiCad</span>
-        <span class="project-tag">BMS</span>
-        <span class="project-tag">E-Mobility</span>
-        <span class="project-tag">SolidWorks</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="track-heading reveal" data-i18n="projects.track2">⚙️ Operations &amp; Process</div>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-header">
-        <div class="project-icon">⚡</div>
-        <span class="project-status status-live" data-i18n="projects.pipeline.status">● Active initiative</span>
-      </div>
-      <div class="project-context" data-i18n="projects.pipeline.ctx">Electromedicina Morales · 2024 — now</div>
-      <div class="project-title" data-i18n="projects.pipeline.title">Manufacturing Optimization Pipeline</div>
-      <p class="project-desc" data-i18n-html="projects.pipeline.desc">A single initiative redesigning Morales' PCB + documentation flow in three phases — each one compounding on the last:</p>
-      <ul class="project-phases">
-        <li data-phase="01" data-i18n-html="projects.pipeline.p1"><strong>Interactive BOM automation.</strong> Assembly instructions generated straight from KiCad. Doc time: 4–6h → ~10 min.</li>
-        <li data-phase="02" data-i18n-html="projects.pipeline.p2"><strong>PCB outsourcing via JLCPCB.</strong> Now the standard production flow. Costs 5× lower, lead times 10× shorter.</li>
-        <li data-phase="03" data-i18n-html="projects.pipeline.p3"><strong>Operator-friendly firmware flasher (WIP).</strong> Internal tool so shop-floor operators can burn boards without engineering bottlenecks.</li>
-      </ul>
-      <div class="project-tags">
-        <span class="project-tag">KiCad</span>
-        <span class="project-tag">Python</span>
-        <span class="project-tag">JLCPCB</span>
-        <span class="project-tag">DevOps</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-header">
-        <div class="project-icon">🏭</div>
-        <span class="project-status status-archived" data-i18n="projects.standfit.status">📁 Case study</span>
-      </div>
-      <div class="project-context" data-i18n="projects.standfit.ctx">StandFit Equipment · 2022 — 2024</div>
-      <div class="project-title" data-i18n="projects.standfit.title">End-to-End Production System</div>
-      <p class="project-desc" data-i18n-html="projects.standfit.desc">Designed the operation from zero: digital inventory with <strong>100+ SKUs</strong>, production orders, BOM costing, purchase planning. Tripled capacity without adding headcount; halved component costs via additive manufacturing.</p>
-      <div class="project-tags">
-        <span class="project-tag">Operations</span>
-        <span class="project-tag">BOM</span>
-        <span class="project-tag">Apps Script</span>
-        <span class="project-tag">Fusion 360</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-header">
-        <div class="project-icon">🏋️</div>
-        <span class="project-status status-archived" data-i18n="projects.fitness.status">📁 Case study</span>
-      </div>
-      <div class="project-context" data-i18n="projects.fitness.ctx">StandFit Equipment · 2022 — 2024</div>
-      <div class="project-title" data-i18n="projects.fitness.title">Fitness Equipment Portfolio</div>
-      <p class="project-desc" data-i18n-html="projects.fitness.desc"><strong>30+ industrial designs</strong> of strength and functional training equipment. Original design, Voice-of-Customer iteration, full 3D modeling and manufacturing-ready documentation.</p>
-      <div class="project-tags">
-        <span class="project-tag">Industrial Design</span>
-        <span class="project-tag">Fusion 360</span>
-        <span class="project-tag">SolidWorks</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ──────────────────── CONTACT ──────────────────── -->
-<section id="contact">
-  <div class="contact-wrapper">
-    <div class="section-label reveal" data-i18n="contact.label">Contact</div>
-    <h2 class="section-title reveal" data-i18n="contact.title">Let's build something</h2>
-    <p class="contact-intro reveal" data-i18n="contact.intro">Open to full-time roles (Product Engineer · Operations · Founding Engineer) and selected consulting. Remote international preferred; hybrid Buenos Aires welcome.</p>
-    <div class="contact-links reveal">
-      <a href="https://linkedin.com/in/ignaciodiazpacce" class="contact-link" target="_blank" rel="noopener">
-        <span>💼</span> <span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/diazpacceignacio6-spec" class="contact-link" target="_blank" rel="noopener">
-        <span>🐙</span> <span>GitHub</span>
-      </a>
-      <a href="mailto:ignaciodiazpacce6@gmail.com" class="contact-link">
-        <span>✉️</span> <span>Email</span>
-      </a>
-    </div>
-    <a href="https://wa.me/543777473006?text=Hi%20Ignacio%2C%20I%20found%20your%20site." class="btn btn-primary reveal" style="font-size:1rem; padding: 0.9rem 2.5rem;" target="_blank" rel="noopener" data-i18n="contact.cta">
-      💬 Send a message
-    </a>
-  </div>
-</section>
-
-<!-- ──────────────────── FOOTER ──────────────────── -->
 <footer>
-  <div class="footer-langs">
-    <span data-i18n="footer.langs">ES native · EN A2 (improving) · PT basic</span>
-  </div>
-  <p class="sig" data-i18n-html="footer.text">Designed and built by <span>Ignacio Diaz Pacce</span> · <span id="year"></span></p>
+  <p>Ignacio Diaz Pacce · <span id="year"></span></p>
 </footer>
 
-<!-- ──────────────────── JS ──────────────────── -->
 <script>
-  /* ──────── i18n ──────── */
-  const i18n = {
+  const translations = {
     en: {
-      'nav.about': 'About',
-      'nav.story': 'Story',
-      'nav.experience': 'Experience',
-      'nav.projects': 'Work',
-      'nav.contact': 'Contact',
-
-      'hero.badge': 'Actively seeking new roles',
-      'hero.subtitle': '<strong>Product Engineer</strong> · Operations · Founding Engineer',
-      'hero.cta1': 'See my work',
-      'hero.cta2': 'Download CV',
-
-      'about.label': 'About',
-      'about.title': 'I build products and the systems that make them',
-      'about.p1': '<strong>Electronics Engineer</strong> with 3+ years shipping products where hardware, firmware and software meet operations. Equally comfortable writing a Flutter app, routing a PCB, or redesigning a production line.',
-      'about.p2': 'My focus is the <strong>full product lifecycle</strong> — discovery, build, validation and transfer to production. I scaled production 3×, cut technical documentation time by 90%, and led outsourcing that reduced costs up to 5×.',
-      'about.thesis': '"Excellence in processes and execution is the foundation of long-term success — for companies and for countries."',
-      'about.cta': 'Let\'s talk →',
-
-      'stats.years': 'Years of experience',
-      'stats.products': 'Industrial designs shipped',
-      'stats.optimization': 'Process time reduction',
-      'stats.scale': 'Production scale-up led',
-
-      'story.label': 'My Story',
-      'story.title': 'From disassembling radios to designing production systems',
-      'story.desc': 'A self-made path into engineering — no technical family background, just curiosity that kept compounding.',
-      'story.s1.step': '01 · Curiosity',
-      'story.s1.title': 'Taking things apart',
-      'story.s1.body': 'As a kid I was constantly disassembling radios, remotes and DVD players; modifying software on PC and mobile; building things like a <strong>bike light from LEDs and salvaged parts</strong>. No engineers at home — my father is a dentist, my mother a teacher — just a pull I couldn\'t ignore.',
-      'story.s2.step': '02 · Decision',
-      'story.s2.title': 'Electronics, by design',
-      'story.s2.body': 'A vocational test pointed me to electronics, and the match stuck. I chose <strong>UNNE in Corrientes</strong> mostly for proximity — 220 km from home — but what I\'d find there reshaped how I see engineering.',
-      'story.s3.step': '03 · Formation',
-      'story.s3.title': 'Systems over circuits',
-      'story.s3.body': 'A young <strong>Electrotechnics II professor</strong> flipped my view: engineering wasn\'t about components, it was about systems — flows, dependencies, feedback loops. That mindset carried me through Bioinstrumentation, DSP and the hard jump from <strong>Goya to Buenos Aires</strong>.',
-      'story.s4.step': '04 · Today',
-      'story.s4.title': 'Building fluent systems',
-      'story.s4.body': 'I design products and the processes that ship them. Obsessed with <strong>internal excellence as a driver of external performance</strong>, operational clarity, and making technology accessible — in tools, in organizations, in education.',
-
-      'exp.label': 'Experience',
-      'exp.title': 'Where I\'ve owned the outcome',
-      'exp.desc': 'Roles where I took end-to-end ownership — from product to process, from firmware to end user.',
-      'exp.e1.date': 'Nov 2024 — Present',
-      'exp.e1.role': 'Mobile & Product Engineer',
-      'exp.e1.intro': 'Developing connected biomedical devices (aesthetics, kinesiology, veterinary) across electronics, firmware, mobile software and production.',
-      'exp.e1.b1': 'Building <strong>evet_hub</strong> — Flutter/BLE app to manage multiple veterinary biomedical devices, starting with an electrocardiograph.',
-      'exp.e1.b2': 'Led the <strong>Bluetooth Classic → BLE migration</strong>, improving iOS/Android compatibility and stability.',
-      'exp.e1.b3': 'Launched a <strong>3-phase manufacturing optimization initiative</strong>: Interactive BOM automation, JLCPCB outsourcing, operator-friendly firmware flashing tool.',
-      'exp.e1.b4': 'Reactivated <strong>Redmine</strong> and standardized repos (Bitbucket, KiCad) for team-wide traceability.',
-
-      'exp.e2.date': 'Apr 2022 — Oct 2024',
-      'exp.e2.role': 'Co-founder & Production Lead',
-      'exp.e2.intro': 'Built the full operational infrastructure of a fitness equipment company from scratch — product, processes, inventory, controls.',
-      'exp.e2.b1': 'Designed a portfolio of <strong>30+ machine models</strong>, iterating on Voice of Customer.',
-      'exp.e2.b2': '<strong>Tripled</strong> production capacity (1–2 → 6 machines/month) with the same headcount via a 6-station layout.',
-      'exp.e2.b3': 'Digitized inventory (<strong>100+ SKUs</strong>) with barcode; built production orders, BOM costing, purchase planning and preventive maintenance from zero.',
-      'exp.e2.b4': 'Halved component costs by replacing machining with <strong>additive manufacturing</strong>.',
-
-      'exp.e3.date': '2021 — 2022',
-      'exp.e3.role': 'PCB Designer & Research Fellow',
-      'exp.e3.intro': 'Designed electronic boards to test <strong>BMS for electric mobility</strong> (Voltu). In parallel at UNNE: research on grid-connected photovoltaic control systems and teaching assistant for Electrotechnics II.',
-
-      'skills.label': 'Skills',
-      'skills.title': 'Tech & tools',
-      'skills.desc': 'The stack I use daily — from embedded firmware to products in production.',
-      'skills.product': 'Product & Operations',
-      'skills.product.1': 'Product Lifecycle',
-      'skills.product.2': 'Process Optimization',
-      'skills.product.3': 'BOM Costing',
-      'skills.product.4': 'Supply Chain',
-      'skills.product.5': 'Change Management',
-      'skills.product.6': 'Root Cause Analysis',
-      'skills.mobile': 'Mobile & Embedded',
-      'skills.electronics': 'Electronics & PCB',
-      'skills.automation': 'Automation & Backend',
-      'skills.cad': 'CAD & Manufacturing',
-      'skills.print3d': '3D Printing (PETG/PLA/Flex)',
-
-      'projects.label': 'Projects',
-      'projects.title': 'Selected work',
-      'projects.desc': 'Split into two tracks that match how I actually work: engineering and operations.',
-      'projects.track1': '🔧 Engineering',
-      'projects.track2': '⚙️ Operations & Process',
-
-      'projects.evet.status': '🚧 In development',
-      'projects.evet.ctx': 'Electromedicina Morales · 2024 — now',
-      'projects.evet.title': 'evet_hub — Veterinary Biomedical Hub',
-      'projects.evet.desc': 'Flutter/BLE concentrator for veterinary electromedicine. Modular architecture starting with an <strong>electrocardiograph</strong> and designed to scale to new devices. Roadmap: patient traceability.',
-
-      'projects.bms.status': '📁 Case study',
-      'projects.bms.ctx': 'Voltu Motor · 2021 — 2022',
-      'projects.bms.title': 'BMS Testing Hardware',
-      'projects.bms.desc': 'Electronic boards to test <strong>Battery Management Systems</strong> in electric mobility. Electrical validation, KiCad routing and 3D modeling of housings.',
-
-      'projects.pipeline.status': '● Active initiative',
-      'projects.pipeline.ctx': 'Electromedicina Morales · 2024 — now',
-      'projects.pipeline.title': 'Manufacturing Optimization Pipeline',
-      'projects.pipeline.desc': 'A single initiative redesigning Morales\' PCB + documentation flow in three phases — each one compounding on the last:',
-      'projects.pipeline.p1': '<strong>Interactive BOM automation.</strong> Assembly instructions generated straight from KiCad. Doc time: 4–6h → ~10 min.',
-      'projects.pipeline.p2': '<strong>PCB outsourcing via JLCPCB.</strong> Now the standard production flow. Costs 5× lower, lead times 10× shorter.',
-      'projects.pipeline.p3': '<strong>Operator-friendly firmware flasher (WIP).</strong> Internal tool so shop-floor operators can burn boards without engineering bottlenecks.',
-
-      'projects.standfit.status': '📁 Case study',
-      'projects.standfit.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.standfit.title': 'End-to-End Production System',
-      'projects.standfit.desc': 'Designed the operation from zero: digital inventory with <strong>100+ SKUs</strong>, production orders, BOM costing, purchase planning. Tripled capacity without adding headcount; halved component costs via additive manufacturing.',
-
-      'projects.fitness.status': '📁 Case study',
-      'projects.fitness.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.fitness.title': 'Fitness Equipment Portfolio',
-      'projects.fitness.desc': '<strong>30+ industrial designs</strong> of strength and functional training equipment. Original design, Voice-of-Customer iteration, full 3D modeling and manufacturing-ready documentation.',
-
-      'contact.label': 'Contact',
-      'contact.title': 'Let\'s build something',
-      'contact.intro': 'Open to full-time roles (Product Engineer · Operations · Founding Engineer) and selected consulting. Remote international preferred; hybrid Buenos Aires welcome.',
-      'contact.cta': '💬 Send a message',
-
-      'footer.langs': 'ES native · EN A2 (improving) · PT basic',
-      'footer.text': 'Designed and built by <span>Ignacio Diaz Pacce</span> · <span id="year"></span>',
+      badge: "Product Engineer · Mobile & Firmware",
+      subtitle: "Electronics Engineer · Product Development & Project Management",
+      description1: "Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.",
+      description2: "Currently building a <strong>Flutter mobile app</strong> and <strong>STM32 firmware</strong> for a veterinary electrocardiograph, integrated into a hub architecture to scale toward clinical traceability.",
+      cv_btn: "Download CV"
     },
-
     es: {
-      'nav.about': 'Sobre mí',
-      'nav.story': 'Historia',
-      'nav.experience': 'Experiencia',
-      'nav.projects': 'Proyectos',
-      'nav.contact': 'Contacto',
-
-      'hero.badge': 'Buscando nuevos desafíos',
-      'hero.subtitle': '<strong>Product Engineer</strong> · Operaciones · Founding Engineer',
-      'hero.cta1': 'Ver proyectos',
-      'hero.cta2': 'Descargar CV',
-
-      'about.label': 'Sobre mí',
-      'about.title': 'Construyo productos y los sistemas que los hacen posibles',
-      'about.p1': '<strong>Ingeniero en Electrónica</strong> con +3 años entregando productos donde hardware, firmware y software se cruzan con operaciones. Igual de cómodo escribiendo una app Flutter, ruteando un PCB o rediseñando una línea productiva.',
-      'about.p2': 'Mi foco está en el <strong>ciclo completo del producto</strong>: discovery, desarrollo, validación y transferencia a producción. Escalé producción 3×, reduje tiempos de documentación 90% y lideré externalizaciones que bajaron costos hasta 5×.',
-      'about.thesis': '"La excelencia en procesos y ejecución es la base del éxito de largo plazo — para empresas y para países."',
-      'about.cta': 'Hablemos →',
-
-      'stats.years': 'Años de experiencia',
-      'stats.products': 'Diseños industriales entregados',
-      'stats.optimization': 'Reducción de tiempos de proceso',
-      'stats.scale': 'Escalamiento productivo liderado',
-
-      'story.label': 'Mi historia',
-      'story.title': 'De desarmar radios a diseñar sistemas productivos',
-      'story.desc': 'Un camino autogenerado hacia la ingeniería — sin background técnico familiar, solo curiosidad que fue sumando.',
-      'story.s1.step': '01 · Curiosidad',
-      'story.s1.title': 'Desarmar todo',
-      'story.s1.body': 'De chico desarmaba radios, controles y DVDs; modificaba software en PC y celular; y construía cosas como una <strong>luz de bicicleta con LEDs y componentes reciclados</strong>. Sin ingenieros en casa — mi viejo es odontólogo, mi vieja docente — solo una curiosidad que no pude apagar.',
-      'story.s2.step': '02 · Decisión',
-      'story.s2.title': 'Electrónica, por convicción',
-      'story.s2.body': 'Un test vocacional me orientó a electrónica y el click fue inmediato. Elegí <strong>UNNE en Corrientes</strong> por proximidad — 220 km de casa — pero lo que encontré ahí cambió cómo entiendo la ingeniería.',
-      'story.s3.step': '03 · Formación',
-      'story.s3.title': 'Sistemas, no componentes',
-      'story.s3.body': 'Un <strong>profesor joven de Electrotecnia II</strong> me dio vuelta la cabeza: la ingeniería no era sobre componentes, era sobre sistemas — flujos, dependencias, loops de feedback. Esa mentalidad me acompañó en Bioinstrumentación, DSP y el salto duro de <strong>Goya a Buenos Aires</strong>.',
-      'story.s4.step': '04 · Hoy',
-      'story.s4.title': 'Construir sistemas fluidos',
-      'story.s4.body': 'Diseño productos y los procesos que los entregan. Obsesionado con la <strong>excelencia interna como motor del desempeño externo</strong>, la claridad operacional y hacer la tecnología accesible — en herramientas, organizaciones y educación.',
-
-      'exp.label': 'Experiencia',
-      'exp.title': 'Donde tomé ownership del resultado',
-      'exp.desc': 'Roles donde me hice cargo end-to-end: del producto al proceso, del firmware al usuario final.',
-      'exp.e1.date': 'Nov 2024 — Presente',
-      'exp.e1.role': 'Mobile & Product Engineer',
-      'exp.e1.intro': 'Desarrollo de dispositivos biomédicos conectados (estética, kinesiología, veterinaria) cruzando electrónica, firmware, software móvil y producción.',
-      'exp.e1.b1': 'Desarrollando <strong>evet_hub</strong> — app Flutter/BLE para gestionar múltiples dispositivos biomédicos veterinarios, arrancando por electrocardiógrafo.',
-      'exp.e1.b2': 'Lideré la migración <strong>Bluetooth Classic → BLE</strong>, mejorando compatibilidad iOS/Android y estabilidad.',
-      'exp.e1.b3': 'Lancé una <strong>iniciativa de optimización productiva en 3 fases</strong>: Interactive BOM automatizado, externalización JLCPCB y herramienta intuitiva para grabar firmware en planta.',
-      'exp.e1.b4': 'Reactivé <strong>Redmine</strong> y estandaricé repositorios (Bitbucket, KiCad) para trazabilidad de equipo.',
-
-      'exp.e2.date': 'Abr 2022 — Oct 2024',
-      'exp.e2.role': 'Co-fundador & Encargado de Producción',
-      'exp.e2.intro': 'Construí desde cero la infraestructura operativa de una empresa de equipamiento fitness: producto, procesos, inventario y controles.',
-      'exp.e2.b1': 'Portfolio de <strong>+30 modelos</strong>, iterando en base a Voice of Customer.',
-      'exp.e2.b2': '<strong>Tripliqué</strong> la capacidad productiva (1–2 → 6 máquinas/mes) con el mismo equipo, vía layout de 6 estaciones.',
-      'exp.e2.b3': 'Digitalicé inventario (<strong>+100 SKUs</strong>) con código de barras; armé desde cero órdenes de producción, BOM costing, compras y mantenimiento preventivo.',
-      'exp.e2.b4': 'Reduje a la mitad costos de componentes reemplazando mecanizado por <strong>manufactura aditiva</strong>.',
-
-      'exp.e3.date': '2021 — 2022',
-      'exp.e3.role': 'Diseñador de PCB & Becario',
-      'exp.e3.intro': 'Diseño de placas para testeo de <strong>BMS en movilidad eléctrica</strong> (Voltu). En paralelo en UNNE: investigación en sistemas fotovoltaicos conectados a red y adscripto en Electrotecnia II.',
-
-      'skills.label': 'Skills',
-      'skills.title': 'Tecnologías & herramientas',
-      'skills.desc': 'Stack que uso día a día — del firmware embebido al producto en producción.',
-      'skills.product': 'Producto & Operaciones',
-      'skills.product.1': 'Ciclo de producto',
-      'skills.product.2': 'Optimización de procesos',
-      'skills.product.3': 'BOM Costing',
-      'skills.product.4': 'Supply Chain',
-      'skills.product.5': 'Change Management',
-      'skills.product.6': 'Análisis causa raíz',
-      'skills.mobile': 'Mobile & Embedded',
-      'skills.electronics': 'Electrónica & PCB',
-      'skills.automation': 'Automatización & Backend',
-      'skills.cad': 'CAD & Manufactura',
-      'skills.print3d': 'Impresión 3D (PETG/PLA/Flex)',
-
-      'projects.label': 'Proyectos',
-      'projects.title': 'Trabajo seleccionado',
-      'projects.desc': 'Separados en dos tracks que reflejan cómo trabajo: ingeniería y operaciones.',
-      'projects.track1': '🔧 Ingeniería',
-      'projects.track2': '⚙️ Operaciones & Procesos',
-
-      'projects.evet.status': '🚧 En desarrollo',
-      'projects.evet.ctx': 'Electromedicina Morales · 2024 — hoy',
-      'projects.evet.title': 'evet_hub — Hub Biomédico Veterinario',
-      'projects.evet.desc': 'Concentrador Flutter/BLE para electromedicina veterinaria. Arquitectura modular arrancando por <strong>electrocardiógrafo</strong> y diseñado para escalar a nuevos dispositivos. Roadmap: trazabilidad de pacientes.',
-
-      'projects.bms.status': '📁 Case study',
-      'projects.bms.ctx': 'Voltu Motor · 2021 — 2022',
-      'projects.bms.title': 'Hardware de Testeo BMS',
-      'projects.bms.desc': 'Placas electrónicas para testeo de <strong>Battery Management Systems</strong> en movilidad eléctrica. Validaciones eléctricas, ruteo en KiCad y modelado 3D de carcasas.',
-
-      'projects.pipeline.status': '● Iniciativa activa',
-      'projects.pipeline.ctx': 'Electromedicina Morales · 2024 — hoy',
-      'projects.pipeline.title': 'Pipeline de Optimización de Manufactura',
-      'projects.pipeline.desc': 'Una sola iniciativa rediseñando el flujo de PCBs + documentación de Morales en tres fases — cada una apalancada sobre la anterior:',
-      'projects.pipeline.p1': '<strong>Automatización Interactive BOM.</strong> Instructivos generados directo desde KiCad. Doc técnica: 4–6h → ~10 min.',
-      'projects.pipeline.p2': '<strong>Externalización de PCBs vía JLCPCB.</strong> Hoy es el flujo productivo estándar. Costos 5× menores, tiempos 10× más cortos.',
-      'projects.pipeline.p3': '<strong>Grabador de firmware intuitivo (WIP).</strong> Herramienta interna para que operarios de planta graben placas sin depender de ingeniería.',
-
-      'projects.standfit.status': '📁 Case study',
-      'projects.standfit.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.standfit.title': 'Sistema Productivo End-to-End',
-      'projects.standfit.desc': 'Diseñé la operación desde cero: inventario digital con <strong>+100 SKUs</strong>, órdenes de producción, BOM costing, compras. Tripliqué capacidad sin sumar headcount y reduje costos de componentes a la mitad con manufactura aditiva.',
-
-      'projects.fitness.status': '📁 Case study',
-      'projects.fitness.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.fitness.title': 'Portfolio de Equipamiento Fitness',
-      'projects.fitness.desc': '<strong>+30 diseños industriales</strong> de equipamiento de fuerza y entrenamiento funcional. Diseño original, iteración por Voice of Customer, modelado 3D completo y documentación lista para manufactura.',
-
-      'contact.label': 'Contacto',
-      'contact.title': 'Hagamos algo',
-      'contact.intro': 'Abierto a roles full-time (Product Engineer · Operaciones · Founding Engineer) y consultoría selectiva. Remoto internacional preferido; híbrido Buenos Aires también.',
-      'contact.cta': '💬 Enviar mensaje',
-
-      'footer.langs': 'ES nativo · EN A2 (en formación) · PT básico',
-      'footer.text': 'Diseñado y construido por <span>Ignacio Diaz Pacce</span> · <span id="year"></span>',
+      badge: "Product Engineer · Mobile y Firmware",
+      subtitle: "Ingeniero en Electrónica · Desarrollo de Producto y Gestión de Proyectos",
+      description1: "Ingeniero en electrónica enfocado en productos que integran <strong>hardware, firmware y software</strong>, con visión integral del ciclo de vida y foco en <strong>optimización de procesos</strong>.",
+      description2: "Actualmente desarrollo una <strong>app móvil en Flutter</strong> y el <strong>firmware en STM32</strong> de un electrocardiógrafo veterinario, integrados en una arquitectura tipo hub para escalar hacia trazabilidad clínica.",
+      cv_btn: "Descargar CV"
     },
-
     pt: {
-      'nav.about': 'Sobre mim',
-      'nav.story': 'História',
-      'nav.experience': 'Experiência',
-      'nav.projects': 'Projetos',
-      'nav.contact': 'Contato',
-
-      'hero.badge': 'Buscando novos desafios',
-      'hero.subtitle': '<strong>Product Engineer</strong> · Operações · Founding Engineer',
-      'hero.cta1': 'Ver projetos',
-      'hero.cta2': 'Baixar CV',
-
-      'about.label': 'Sobre mim',
-      'about.title': 'Construo produtos e os sistemas que os tornam possíveis',
-      'about.p1': '<strong>Engenheiro Eletrônico</strong> com +3 anos entregando produtos onde hardware, firmware e software encontram operações. Confortável escrevendo um app Flutter, roteando um PCB ou redesenhando uma linha produtiva.',
-      'about.p2': 'Meu foco é o <strong>ciclo completo do produto</strong> — discovery, desenvolvimento, validação e transferência para produção. Escalei produção 3×, reduzi tempos de documentação em 90% e liderei terceirizações que baixaram custos até 5×.',
-      'about.thesis': '"Excelência em processos e execução é a base do sucesso de longo prazo — para empresas e para países."',
-      'about.cta': 'Vamos conversar →',
-
-      'stats.years': 'Anos de experiência',
-      'stats.products': 'Designs industriais entregues',
-      'stats.optimization': 'Redução em tempos de processo',
-      'stats.scale': 'Escalamento produtivo liderado',
-
-      'story.label': 'Minha história',
-      'story.title': 'De desmontar rádios a desenhar sistemas produtivos',
-      'story.desc': 'Um caminho autogerado para a engenharia — sem background técnico familiar, só curiosidade que foi somando.',
-      'story.s1.step': '01 · Curiosidade',
-      'story.s1.title': 'Desmontar tudo',
-      'story.s1.body': 'Desde criança eu desmontava rádios, controles e DVDs; modificava software em PC e celular; e construía coisas como uma <strong>luz de bicicleta com LEDs e peças recicladas</strong>. Sem engenheiros em casa — meu pai é dentista, minha mãe professora — só uma curiosidade que não dava para apagar.',
-      'story.s2.step': '02 · Decisão',
-      'story.s2.title': 'Eletrônica, por convicção',
-      'story.s2.body': 'Um teste vocacional me indicou eletrônica e o click foi imediato. Escolhi a <strong>UNNE em Corrientes</strong> por proximidade — 220 km de casa — mas o que achei ali mudou como entendo engenharia.',
-      'story.s3.step': '03 · Formação',
-      'story.s3.title': 'Sistemas, não componentes',
-      'story.s3.body': 'Um <strong>professor jovem de Eletrotécnica II</strong> virou minha cabeça: engenharia não era sobre componentes, era sobre sistemas — fluxos, dependências, loops de feedback. Essa mentalidade me acompanhou em Bioinstrumentação, DSP e no salto difícil de <strong>Goya para Buenos Aires</strong>.',
-      'story.s4.step': '04 · Hoje',
-      'story.s4.title': 'Construir sistemas fluidos',
-      'story.s4.body': 'Desenho produtos e os processos que os entregam. Obcecado com a <strong>excelência interna como motor do desempenho externo</strong>, clareza operacional e tornar tecnologia acessível — em ferramentas, organizações e educação.',
-
-      'exp.label': 'Experiência',
-      'exp.title': 'Onde assumi o resultado',
-      'exp.desc': 'Posições onde assumi ownership end-to-end: do produto ao processo, do firmware ao usuário final.',
-      'exp.e1.date': 'Nov 2024 — Presente',
-      'exp.e1.role': 'Mobile & Product Engineer',
-      'exp.e1.intro': 'Desenvolvimento de dispositivos biomédicos conectados (estética, kinesiologia, veterinária) atravessando eletrônica, firmware, software mobile e produção.',
-      'exp.e1.b1': 'Desenvolvendo <strong>evet_hub</strong> — app Flutter/BLE para gerenciar múltiplos dispositivos biomédicos veterinários, começando por eletrocardiógrafo.',
-      'exp.e1.b2': 'Liderei a migração <strong>Bluetooth Classic → BLE</strong>, melhorando compatibilidade iOS/Android e estabilidade.',
-      'exp.e1.b3': 'Lancei uma <strong>iniciativa de otimização produtiva em 3 fases</strong>: Interactive BOM automatizado, terceirização JLCPCB e ferramenta intuitiva para gravar firmware em planta.',
-      'exp.e1.b4': 'Reativei <strong>Redmine</strong> e padronizei repositórios (Bitbucket, KiCad) para rastreabilidade do time.',
-
-      'exp.e2.date': 'Abr 2022 — Out 2024',
-      'exp.e2.role': 'Co-fundador & Encarregado de Produção',
-      'exp.e2.intro': 'Construí do zero a infraestrutura operacional de uma empresa de equipamentos fitness: produto, processos, inventário e controles.',
-      'exp.e2.b1': 'Portfólio de <strong>+30 modelos</strong>, iterando em cima de Voice of Customer.',
-      'exp.e2.b2': '<strong>Tripliquei</strong> a capacidade produtiva (1–2 → 6 máquinas/mês) com o mesmo time via layout de 6 estações.',
-      'exp.e2.b3': 'Digitalizei inventário (<strong>+100 SKUs</strong>) com código de barras; montei do zero ordens de produção, BOM costing, compras e manutenção preventiva.',
-      'exp.e2.b4': 'Reduzi pela metade os custos de componentes substituindo usinagem por <strong>manufatura aditiva</strong>.',
-
-      'exp.e3.date': '2021 — 2022',
-      'exp.e3.role': 'Designer de PCB & Bolsista',
-      'exp.e3.intro': 'Design de placas para teste de <strong>BMS em mobilidade elétrica</strong> (Voltu). Em paralelo na UNNE: pesquisa em sistemas fotovoltaicos conectados à rede e monitor em Eletrotécnica II.',
-
-      'skills.label': 'Skills',
-      'skills.title': 'Tecnologias & ferramentas',
-      'skills.desc': 'Stack que uso no dia a dia — do firmware embarcado ao produto em produção.',
-      'skills.product': 'Produto & Operações',
-      'skills.product.1': 'Ciclo de produto',
-      'skills.product.2': 'Otimização de processos',
-      'skills.product.3': 'BOM Costing',
-      'skills.product.4': 'Supply Chain',
-      'skills.product.5': 'Change Management',
-      'skills.product.6': 'Análise de causa raiz',
-      'skills.mobile': 'Mobile & Embedded',
-      'skills.electronics': 'Eletrônica & PCB',
-      'skills.automation': 'Automação & Backend',
-      'skills.cad': 'CAD & Manufatura',
-      'skills.print3d': 'Impressão 3D (PETG/PLA/Flex)',
-
-      'projects.label': 'Projetos',
-      'projects.title': 'Trabalho selecionado',
-      'projects.desc': 'Separados em dois tracks que refletem como trabalho: engenharia e operações.',
-      'projects.track1': '🔧 Engenharia',
-      'projects.track2': '⚙️ Operações & Processos',
-
-      'projects.evet.status': '🚧 Em desenvolvimento',
-      'projects.evet.ctx': 'Electromedicina Morales · 2024 — hoje',
-      'projects.evet.title': 'evet_hub — Hub Biomédico Veterinário',
-      'projects.evet.desc': 'Concentrador Flutter/BLE para eletromedicina veterinária. Arquitetura modular começando por <strong>eletrocardiógrafo</strong> e desenhado para escalar a novos dispositivos. Roadmap: rastreabilidade de pacientes.',
-
-      'projects.bms.status': '📁 Case study',
-      'projects.bms.ctx': 'Voltu Motor · 2021 — 2022',
-      'projects.bms.title': 'Hardware de Teste BMS',
-      'projects.bms.desc': 'Placas eletrônicas para teste de <strong>Battery Management Systems</strong> em mobilidade elétrica. Validações elétricas, roteamento em KiCad e modelagem 3D de carcaças.',
-
-      'projects.pipeline.status': '● Iniciativa ativa',
-      'projects.pipeline.ctx': 'Electromedicina Morales · 2024 — hoje',
-      'projects.pipeline.title': 'Pipeline de Otimização de Manufatura',
-      'projects.pipeline.desc': 'Uma única iniciativa redesenhando o fluxo de PCBs + documentação da Morales em três fases — cada uma alavancada na anterior:',
-      'projects.pipeline.p1': '<strong>Automação Interactive BOM.</strong> Instruções geradas direto do KiCad. Doc técnica: 4–6h → ~10 min.',
-      'projects.pipeline.p2': '<strong>Terceirização de PCBs via JLCPCB.</strong> Hoje é o fluxo produtivo padrão. Custos 5× menores, lead times 10× mais curtos.',
-      'projects.pipeline.p3': '<strong>Gravador de firmware intuitivo (WIP).</strong> Ferramenta interna para que operadores de chão de fábrica gravem placas sem depender de engenharia.',
-
-      'projects.standfit.status': '📁 Case study',
-      'projects.standfit.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.standfit.title': 'Sistema Produtivo End-to-End',
-      'projects.standfit.desc': 'Desenhei a operação do zero: inventário digital com <strong>+100 SKUs</strong>, ordens de produção, BOM costing, compras. Tripliquei capacidade sem aumentar headcount e reduzi pela metade custos de componentes com manufatura aditiva.',
-
-      'projects.fitness.status': '📁 Case study',
-      'projects.fitness.ctx': 'StandFit Equipment · 2022 — 2024',
-      'projects.fitness.title': 'Portfólio de Equipamentos Fitness',
-      'projects.fitness.desc': '<strong>+30 designs industriais</strong> de equipamentos de força e treinamento funcional. Design original, iteração por Voice of Customer, modelagem 3D completa e documentação pronta para manufatura.',
-
-      'contact.label': 'Contato',
-      'contact.title': 'Vamos construir algo',
-      'contact.intro': 'Aberto a vagas full-time (Product Engineer · Operações · Founding Engineer) e consultoria seletiva. Remoto internacional preferido; híbrido Buenos Aires também.',
-      'contact.cta': '💬 Enviar mensagem',
-
-      'footer.langs': 'ES nativo · EN A2 (em formação) · PT básico',
-      'footer.text': 'Desenhado e construído por <span>Ignacio Diaz Pacce</span> · <span id="year"></span>',
+      badge: "Product Engineer · Mobile e Firmware",
+      subtitle: "Engenheiro Eletrônico · Desenvolvimento de Produto e Gestão de Projetos",
+      description1: "Engenheiro eletrônico focado em produtos que integram <strong>hardware, firmware e software</strong>, com visão completa do ciclo de vida e foco em <strong>otimização de processos</strong>.",
+      description2: "Atualmente desenvolvendo um <strong>aplicativo móvel em Flutter</strong> e <strong>firmware em STM32</strong> para um eletrocardiógrafo veterinário, integrados em uma arquitetura hub para escalar para rastreabilidade clínica.",
+      cv_btn: "Baixar CV"
     }
   };
 
   let currentLang = localStorage.getItem('lang') || 'en';
 
-  function applyLang(lang) {
+  function applyLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
 
-    const dict = i18n[lang];
+    const t = translations[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
+      if (t[key] !== undefined) {
+        if (key === 'description1' || key === 'description2') {
+          el.innerHTML = t[key];
+        } else {
+          el.textContent = t[key];
+        }
+      }
     });
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
   });
 
-  /* ──────── Nav scroll + mobile menu ──────── */
-  const navbar = document.getElementById('navbar');
+  const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  const hamburger = document.getElementById('hamburgerBtn');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ──────── Scroll reveal ──────── */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  /* ──────── Init ──────── */
-  applyLang(currentLang);
+  applyLanguage(currentLang);
 </script>
 </body>
 </html>
