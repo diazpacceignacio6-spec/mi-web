@@ -52,9 +52,9 @@
 
     .lang-switcher {
       display: flex;
-      gap: 0.25rem;
+      gap: 0.5rem;
       background: rgba(237, 231, 216, 0.6);
-      padding: 0.2rem;
+      padding: 0.25rem;
       border-radius: 40px;
       border: 1px solid #e2d9ce;
     }
@@ -62,9 +62,9 @@
     .lang-btn {
       background: none;
       border: none;
-      padding: 0.2rem 0.6rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 30px;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 500;
       cursor: pointer;
       color: #7a7265;
@@ -264,16 +264,6 @@
         height: 64px;
       }
 
-      .lang-switcher {
-        gap: 0.5rem;
-        padding: 0.25rem;
-      }
-
-      .lang-btn {
-        padding: 0.25rem 0.7rem;
-        font-size: 0.75rem;
-      }
-
       .hero {
         flex-direction: row;
         align-items: center;
@@ -334,9 +324,8 @@
 
 <nav id="navbar">
   <div class="lang-switcher">
-    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="en">EN</button>
     <button class="lang-btn" data-lang="es">ES</button>
-    <button class="lang-btn" data-lang="pt">PT</button>
   </div>
 </nav>
 
@@ -345,15 +334,15 @@
     <img src="foto-perfil.jpg" alt="Ignacio Diaz Pacce" class="hero-photo">
   </div>
   <div class="hero-left">
-    <div class="badge" data-i18n="badge">Product Engineer · Mobile & Firmware</div>
+    <div class="badge" id="badge">Product Engineer · Mobile & Firmware</div>
     <h1>Ignacio <span class="accent">Diaz Pacce</span></h1>
-    <div class="subtitle" data-i18n="subtitle">Electronics Engineer · Product Development & Project Management</div>
+    <div class="subtitle" id="subtitle">Electronics Engineer · Product Development & Project Management</div>
     <div class="location">📍 Buenos Aires, Argentina</div>
-    <div class="availability">🌍 Remote · Hybrid </div>
-    <div class="description" data-i18n="description1">
+    <div class="availability">🌍 Remote · Hybrid</div>
+    <div class="description" id="description1">
       Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.
     </div>
-    <div class="description" data-i18n="description2">
+    <div class="description" id="description2">
       Currently building a <strong>Flutter mobile app</strong> and <strong>STM32 firmware</strong> for a veterinary electrocardiograph, integrated into a hub architecture to scale toward clinical traceability.
     </div>
 
@@ -366,13 +355,13 @@
           </a>
           <a href="mailto:ignaciodiazpacce6@gmail.com" class="contact-link">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
-            Email
+            ignaciodiazpacce6@gmail.com
           </a>
           <a href="https://wa.me/543777473006" class="contact-link" target="_blank">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
             WhatsApp
           </a>
-          <a href="./CV_Ignacio_Diaz_Pacce.pdf" class="btn btn-outline" target="_blank" data-i18n="cv_btn">Download CV</a>
+          <a id="cvLink" class="btn btn-outline" target="_blank">Download CV</a>
         </div>
       </div>
     </div>
@@ -398,17 +387,19 @@
       description1: "Ingeniero en electrónica enfocado en productos que integran <strong>hardware, firmware y software</strong>, con visión integral del ciclo de vida y foco en <strong>optimización de procesos</strong>.",
       description2: "Actualmente desarrollo una <strong>app móvil en Flutter</strong> y el <strong>firmware en STM32</strong> de un electrocardiógrafo veterinario, integrados en una arquitectura tipo hub para escalar hacia trazabilidad clínica.",
       cv_btn: "Descargar CV"
-    },
-    pt: {
-      badge: "Product Engineer · Mobile e Firmware",
-      subtitle: "Engenheiro Eletrônico · Desenvolvimento de Produto e Gestão de Projetos",
-      description1: "Engenheiro eletrônico focado em produtos que integram <strong>hardware, firmware e software</strong>, com visão completa do ciclo de vida e foco em <strong>otimização de processos</strong>.",
-      description2: "Atualmente desenvolvendo um <strong>aplicativo móvel em Flutter</strong> e <strong>firmware em STM32</strong> para um eletrocardiógrafo veterinário, integrados em uma arquitetura hub para escalar para rastreabilidade clínica.",
-      cv_btn: "Baixar CV"
     }
   };
 
   let currentLang = localStorage.getItem('lang') || 'en';
+
+  function updateCVLink(lang) {
+    const cvLink = document.getElementById('cvLink');
+    if (lang === 'en') {
+      cvLink.href = './CV_Ignacio_Diaz_Pacce_EN.pdf';
+    } else {
+      cvLink.href = './CV_Ignacio_Diaz_Pacce_ES.pdf';
+    }
+  }
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -416,19 +407,23 @@
     document.documentElement.lang = lang;
 
     const t = translations[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) {
-        if (key === 'description1' || key === 'description2') {
-          el.innerHTML = t[key];
-        } else {
-          el.textContent = t[key];
-        }
-      }
-    });
+    
+    // Actualizar textos
+    document.getElementById('badge').textContent = t.badge;
+    document.getElementById('subtitle').textContent = t.subtitle;
+    document.getElementById('description1').innerHTML = t.description1;
+    document.getElementById('description2').innerHTML = t.description2;
+    document.getElementById('cvLink').textContent = t.cv_btn;
+    
+    updateCVLink(lang);
 
+    // Actualizar clase activa de los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+      if (btn.dataset.lang === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
     });
   }
 
@@ -443,6 +438,7 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Aplicar idioma al cargar la página
   applyLanguage(currentLang);
 </script>
 </body>
