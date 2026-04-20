@@ -10,8 +10,6 @@
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f5f1e8'/%3E%3Ctext x='50%25' y='62%25' font-size='58' font-family='monospace' fill='%23b91c1c' text-anchor='middle' font-weight='bold'%3Ei%3C/text%3E%3C/svg%3E">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f5f1e8'/%3E%3Ctext x='50%25' y='62%25' font-size='58' font-family='monospace' fill='%23b91c1c' text-anchor='middle' font-weight='bold'%3Ei%3C/text%3E%3C/svg%3E">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -140,11 +138,22 @@
     .location {
       font-size: 0.8rem;
       color: #7a7265;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .availability {
+      font-size: 0.8rem;
+      color: #b91c1c;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.3rem;
+      font-weight: 500;
     }
 
     .description {
@@ -160,7 +169,6 @@
       font-weight: 500;
     }
 
-    /* Contacto y botones juntos */
     .contact-section {
       margin-top: 1.5rem;
       padding-top: 1rem;
@@ -294,6 +302,10 @@
         justify-content: flex-start;
       }
 
+      .availability {
+        justify-content: flex-start;
+      }
+
       .description {
         text-align: left;
       }
@@ -337,6 +349,7 @@
     <h1>Ignacio <span class="accent">Diaz Pacce</span></h1>
     <div class="subtitle" data-i18n="subtitle">Electronics Engineer · Product Development & Project Management</div>
     <div class="location">📍 Buenos Aires, Argentina</div>
+    <div class="availability">🌍 Remote · Hybrid </div>
     <div class="description" data-i18n="description1">
       Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.
     </div>
