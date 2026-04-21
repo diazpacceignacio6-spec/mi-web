@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <meta name="description" content="Ignacio Diaz Pacce — Electronics Engineer focused on product development, firmware, mobile apps and process optimization.">
+  <meta name="description" content="Ignacio Diaz Pacce — Technical Product Manager | IoT & MedTech | Hardware to Mobile.">
   <meta name="author" content="Ignacio Diaz Pacce">
   <meta name="theme-color" content="#f5f1e8">
-  <title>Ignacio Diaz Pacce — Electronics Engineer</title>
+  <title>Ignacio Diaz Pacce — Technical Product Manager</title>
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f5f1e8'/%3E%3Ctext x='50%25' y='62%25' font-size='58' font-family='monospace' fill='%23b91c1c' text-anchor='middle' font-weight='bold'%3Ei%3C/text%3E%3C/svg%3E">
 
@@ -334,17 +334,13 @@
     <img src="foto-perfil.jpg" alt="Ignacio Diaz Pacce" class="hero-photo">
   </div>
   <div class="hero-left">
-    <div class="badge" id="badge">Product Engineer · Mobile & Firmware</div>
+    <div class="badge" id="badge">Technical Product Manager · IoT & MedTech</div>
     <h1>Ignacio <span class="accent">Diaz Pacce</span></h1>
     <div class="subtitle" id="subtitle">Electronics Engineer · Product Development & Project Management</div>
     <div class="location">📍 Buenos Aires, Argentina</div>
     <div class="availability">🌍 Remote · Hybrid</div>
-    <div class="description" id="description1">
-      Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.
-    </div>
-    <div class="description" id="description2">
-      Currently building a <strong>Flutter mobile app</strong> and <strong>STM32 firmware</strong> for a veterinary electrocardiograph, integrated into a hub architecture to scale toward clinical traceability.
-    </div>
+    <div class="description" id="description1"></div>
+    <div class="description" id="description2"></div>
 
     <div class="contact-section">
       <div class="contact-row">
@@ -375,17 +371,17 @@
 <script>
   const translations = {
     en: {
-      badge: "Product Engineer · Mobile & Firmware",
+      badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Electronics Engineer · Product Development & Project Management",
-      description1: "Electronics engineer focused on products that integrate <strong>hardware, firmware and software</strong>, with a complete lifecycle vision and focus on <strong>process optimization</strong>.",
-      description2: "Currently building a <strong>Flutter mobile app</strong> and <strong>STM32 firmware</strong> for a veterinary electrocardiograph, integrated into a hub architecture to scale toward clinical traceability.",
+      description1: "Electronics Engineer turned <strong>Technical Product Manager</strong>. I define, build and scale <strong>IoT & MedTech products</strong> — bridging hardware, firmware and mobile into unified ecosystems.",
+      description2: "Currently leading the development of a <strong>veterinary clinical platform</strong> integrating BLE-connected devices, STM32 firmware and a Flutter mobile app — designed to scale toward clinical traceability.",
       cv_btn: "Download CV"
     },
     es: {
-      badge: "Product Engineer · Mobile y Firmware",
+      badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Ingeniero en Electrónica · Desarrollo de Producto y Gestión de Proyectos",
-      description1: "Ingeniero en electrónica enfocado en productos que integran <strong>hardware, firmware y software</strong>, con visión integral del ciclo de vida y foco en <strong>optimización de procesos</strong>.",
-      description2: "Actualmente desarrollo una <strong>app móvil en Flutter</strong> y el <strong>firmware en STM32</strong> de un electrocardiógrafo veterinario, integrados en una arquitectura tipo hub para escalar hacia trazabilidad clínica.",
+      description1: "Ingeniero en Electrónica orientado a <strong>gestión de producto</strong>. Defino, construyo y escalo productos <strong>IoT y MedTech</strong> — integrando hardware, firmware y mobile en ecosistemas unificados.",
+      description2: "Actualmente liderando el desarrollo de una <strong>plataforma clínica veterinaria</strong> que integra dispositivos BLE, firmware STM32 y app móvil Flutter — diseñada para escalar hacia trazabilidad clínica.",
       cv_btn: "Descargar CV"
     }
   };
@@ -394,11 +390,8 @@
 
   function updateCVLink(lang) {
     const cvLink = document.getElementById('cvLink');
-    if (lang === 'en') {
-      cvLink.href = './CV_Ignacio_Diaz_Pacce_EN.pdf';
-    } else {
-      cvLink.href = './CV_Ignacio_Diaz_Pacce_ES.pdf';
-    }
+    cvLink.href = lang === 'en' ? './CV_Ignacio_Diaz_Pacce_EN.pdf' : './CV_Ignacio_Diaz_Pacce_ES.pdf';
+    cvLink.textContent = lang === 'en' ? 'Download CV' : 'Descargar CV';
   }
 
   function applyLanguage(lang) {
@@ -407,23 +400,15 @@
     document.documentElement.lang = lang;
 
     const t = translations[lang];
-    
-    // Actualizar textos
     document.getElementById('badge').textContent = t.badge;
     document.getElementById('subtitle').textContent = t.subtitle;
     document.getElementById('description1').innerHTML = t.description1;
     document.getElementById('description2').innerHTML = t.description2;
-    document.getElementById('cvLink').textContent = t.cv_btn;
-    
+
     updateCVLink(lang);
 
-    // Actualizar clase activa de los botones de idioma
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      if (btn.dataset.lang === lang) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.dataset.lang === lang);
     });
   }
 
@@ -438,7 +423,6 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Aplicar idioma al cargar la página
   applyLanguage(currentLang);
 </script>
 </body>
