@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -148,12 +148,24 @@
     .availability {
       font-size: 0.8rem;
       color: #b91c1c;
-      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.3rem;
       font-weight: 500;
+    }
+
+    .availability-note {
+      font-size: 0.75rem;
+      color: #2b6e3c;
+      background: rgba(43, 110, 60, 0.1);
+      border: 1px solid rgba(43, 110, 60, 0.25);
+      border-radius: 40px;
+      padding: 0.2rem 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
     }
 
     .description {
@@ -296,6 +308,10 @@
         justify-content: flex-start;
       }
 
+      .availability-note {
+        justify-content: flex-start;
+      }
+
       .description {
         text-align: left;
       }
@@ -339,6 +355,7 @@
     <div class="subtitle" id="subtitle">Electronics Engineer · Product Development & Project Management</div>
     <div class="location">📍 Buenos Aires, Argentina</div>
     <div class="availability">🌍 Remote · Hybrid</div>
+    <div class="availability-note" id="availabilityNote">✅ Open to new opportunities — available for full-time or part-time roles</div>
     <div class="description" id="description1"></div>
     <div class="description" id="description2"></div>
 
@@ -374,24 +391,26 @@
       badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Electronics Engineer · Product Development & Project Management",
       description1: "Electronics Engineer turned <strong>Technical Product Manager</strong>. I define, build and scale <strong>IoT & MedTech products</strong> — bridging hardware, firmware and mobile into unified ecosystems.",
-      description2: "Currently leading the development of a <strong>veterinary clinical platform</strong> integrating BLE-connected devices, STM32 firmware and a Flutter mobile app — designed to scale toward clinical traceability.",
+      description2: "Leading the delivery of a <strong>veterinary clinical platform</strong> integrating BLE-connected devices, STM32 firmware and a Flutter mobile app — designed to scale toward clinical traceability.",
+      availabilityNote: "✅ Open to new opportunities — available for full-time or part-time roles",
       cv_btn: "Download CV"
     },
     es: {
       badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Ingeniero en Electrónica · Desarrollo de Producto y Gestión de Proyectos",
       description1: "Ingeniero en Electrónica orientado a <strong>gestión de producto</strong>. Defino, construyo y escalo productos <strong>IoT y MedTech</strong> — integrando hardware, firmware y mobile en ecosistemas unificados.",
-      description2: "Actualmente liderando el desarrollo de una <strong>plataforma clínica veterinaria</strong> que integra dispositivos BLE, firmware STM32 y app móvil Flutter — diseñada para escalar hacia trazabilidad clínica.",
+      description2: "Liderando la entrega de una <strong>plataforma clínica veterinaria</strong> que integra dispositivos BLE, firmware STM32 y una app móvil en Flutter — diseñada para escalar hacia trazabilidad clínica.",
+      availabilityNote: "✅ Abierto a nuevas oportunidades — disponible para roles full-time o part-time",
       cv_btn: "Descargar CV"
     }
   };
 
-  let currentLang = localStorage.getItem('lang') || 'en';
+  let currentLang = localStorage.getItem('lang') || 'es';
 
   function updateCVLink(lang) {
     const cvLink = document.getElementById('cvLink');
     cvLink.href = lang === 'en' ? './CV_Ignacio_Diaz_Pacce_EN.pdf' : './CV_Ignacio_Diaz_Pacce_ES.pdf';
-    cvLink.textContent = lang === 'en' ? 'Download CV' : 'Descargar CV';
+    cvLink.textContent = translations[lang].cv_btn;
   }
 
   function applyLanguage(lang) {
@@ -404,6 +423,7 @@
     document.getElementById('subtitle').textContent = t.subtitle;
     document.getElementById('description1').innerHTML = t.description1;
     document.getElementById('description2').innerHTML = t.description2;
+    document.getElementById('availabilityNote').innerHTML = t.availabilityNote;
 
     updateCVLink(lang);
 
