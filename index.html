@@ -155,19 +155,6 @@
       font-weight: 500;
     }
 
-    .availability-note {
-      font-size: 0.75rem;
-      color: #2b6e3c;
-      background: rgba(43, 110, 60, 0.1);
-      border: 1px solid rgba(43, 110, 60, 0.25);
-      border-radius: 40px;
-      padding: 0.2rem 0.7rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      margin-top: 0.4rem;
-    }
-
     .description {
       font-size: 0.9rem;
       line-height: 1.55;
@@ -308,10 +295,6 @@
         justify-content: flex-start;
       }
 
-      .availability-note {
-        justify-content: flex-start;
-      }
-
       .description {
         text-align: left;
       }
@@ -355,7 +338,6 @@
     <div class="subtitle" id="subtitle">Electronics Engineer · Product Development & Project Management</div>
     <div class="location">📍 Buenos Aires, Argentina</div>
     <div class="availability">🌍 Remote · Hybrid</div>
-    <div class="availability-note" id="availabilityNote">✅ Open to new opportunities — available for full-time or part-time roles</div>
     <div class="description" id="description1"></div>
     <div class="description" id="description2"></div>
 
@@ -366,7 +348,7 @@
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(26%) sepia(80%) saturate(500%) hue-rotate(340deg);">
             LinkedIn
           </a>
-          <a href="mailto:ignaciodiazpacce6@gmail.com" class="contact-link">
+          <a href="mailto:ignaciodiazpacce6@gmail.com" class="contact-link" id="emailLink">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
             ignaciodiazpacce6@gmail.com
           </a>
@@ -395,16 +377,14 @@
       badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Electronics Engineer · Product Development & Project Management",
       description1: "Electronics Engineer turned <strong>Technical Product Manager</strong>. I define, build and scale <strong>IoT & MedTech products</strong> — bridging hardware, firmware and mobile into unified ecosystems.",
-      description2: "Leading the delivery of a <strong>veterinary clinical platform</strong> integrating BLE-connected devices, STM32 firmware and a Flutter mobile app — designed to scale toward clinical traceability.",
-      availabilityNote: "✅ Open to new opportunities — available for full-time or part-time roles",
+      description2: "Led the design and development of a hub-architecture Flutter app to connect multiple veterinary devices from a single interface. The first device integrated was an electrocardiograph, establishing the foundation to scale toward clinical patient traceability (iOS/Android).",
       cv_btn: "Download CV"
     },
     es: {
       badge: "Technical Product Manager · IoT & MedTech",
       subtitle: "Ingeniero en Electrónica · Desarrollo de Producto y Gestión de Proyectos",
       description1: "Ingeniero en Electrónica orientado a <strong>gestión de producto</strong>. Defino, construyo y escalo productos <strong>IoT y MedTech</strong> — integrando hardware, firmware y mobile en ecosistemas unificados.",
-      description2: "Liderando la entrega de una <strong>plataforma clínica veterinaria</strong> que integra dispositivos BLE, firmware STM32 y una app móvil en Flutter — diseñada para escalar hacia trazabilidad clínica.",
-      availabilityNote: "✅ Abierto a nuevas oportunidades — disponible para roles full-time o part-time",
+      description2: "Lideré el diseño y desarrollo de una app en Flutter con arquitectura tipo hub para conectar múltiples dispositivos veterinarios desde una única interfaz. El primer dispositivo integrado fue un electrocardiógrafo, estableciendo las bases para escalar hacia trazabilidad clínica de pacientes (iOS/Android).",
       cv_btn: "Descargar CV"
     }
   };
@@ -427,7 +407,6 @@
     document.getElementById('subtitle').textContent = t.subtitle;
     document.getElementById('description1').innerHTML = t.description1;
     document.getElementById('description2').innerHTML = t.description2;
-    document.getElementById('availabilityNote').innerHTML = t.availabilityNote;
 
     updateCVLink(lang);
 
@@ -446,6 +425,31 @@
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fix para el botón de email: si no funciona mailto, copia al portapapeles
+  const emailLink = document.getElementById('emailLink');
+  if (emailLink) {
+    emailLink.addEventListener('click', function(e) {
+      const email = 'ignaciodiazpacce6@gmail.com';
+      
+      // Pequeño timeout para detectar si mailto falló silenciosamente
+      setTimeout(() => {
+        // Si después de 200ms el foco sigue en la página, probablemente no abrió el cliente de correo
+        if (document.hasFocus()) {
+          // Copiar al portapapeles como fallback
+          navigator.clipboard.writeText(email).then(() => {
+            const originalText = emailLink.innerHTML;
+            emailLink.innerHTML = '📋 ¡Copiado! ' + email;
+            setTimeout(() => {
+              emailLink.innerHTML = originalText;
+            }, 2000);
+          }).catch(() => {
+            alert('Copiá manualmente: ' + email);
+          });
+        }
+      }, 200);
+    });
+  }
 
   applyLanguage(currentLang);
 </script>
