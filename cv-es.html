@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Ignacio Diaz Pacce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Calibri', sans-serif;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.2rem 2.4rem;
+    }
+
+    /* HEADER */
+    .header { margin-bottom: 1.1rem; }
+    .header h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      color: #111;
+    }
+    .header .tagline {
+      font-size: 10pt;
+      color: #444;
+      margin-top: 0.15rem;
+      font-weight: 400;
+    }
+    .header .contact {
+      font-size: 9pt;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+    .header .contact a { color: #1a56a0; text-decoration: none; }
+    .divider {
+      border: none;
+      border-top: 1.5px solid #1a56a0;
+      margin: 0.7rem 0 1.1rem;
+    }
+
+    /* SECTIONS */
+    section { margin-bottom: 1rem; }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a56a0;
+      border-left: 3px solid #1a56a0;
+      padding-left: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .summary-box {
+      background: #eef3fb;
+      border-left: 3px solid #1a56a0;
+      padding: 0.6rem 0.8rem;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+    }
+
+    /* EXPERIENCE */
+    .job { margin-bottom: 0.9rem; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.2rem; }
+    .job-title { font-weight: 700; font-size: 10.5pt; }
+    .job-date { font-size: 9.5pt; color: #555; white-space: nowrap; }
+    .job-company { font-style: italic; color: #1a56a0; font-size: 9.5pt; }
+    .job-location { font-size: 9pt; color: #666; }
+    .job-intro { font-size: 10pt; color: #333; margin: 0.3rem 0 0.4rem; }
+
+    .sub-section { font-weight: 600; font-size: 9.5pt; margin: 0.45rem 0 0.2rem; }
+
+    ul { padding-left: 1.1rem; }
+    ul li {
+      font-size: 10pt;
+      margin-bottom: 0.2rem;
+      line-height: 1.45;
+    }
+    ul li::marker { content: "▸  "; color: #1a56a0; font-size: 8pt; }
+
+    /* SKILLS */
+    .skills-grid { display: flex; flex-direction: column; gap: 0.25rem; }
+    .skill-row { display: flex; gap: 0.4rem; font-size: 10pt; }
+    .skill-label { font-weight: 600; color: #1a56a0; white-space: nowrap; min-width: 170px; }
+    .skill-value { color: #222; }
+
+    /* MANAGEMENT */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .pill {
+      font-size: 9.5pt;
+      color: #333;
+    }
+    .pill::after { content: " ·"; color: #999; }
+    .pill:last-child::after { content: ""; }
+
+    /* FOOTER INFO */
+    .info-row { display: flex; flex-wrap: wrap; gap: 0.8rem; font-size: 9.5pt; }
+    .info-item { display: flex; gap: 0.3rem; }
+    .info-label { font-weight: 600; }
+
+    @media print {
+      body { font-size: 10pt; }
+      .page { padding: 1.4rem 1.8rem; max-width: 100%; }
+      @page { margin: 1.2cm 1.5cm; size: A4; }
+      a { color: #1a56a0 !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <h1>IGNACIO JAVIER DIAZ PACCE</h1>
+    <div class="tagline">Technical Product Manager | IoT & MedTech | Hardware to Mobile</div>
+    <div class="contact">
+      Buenos Aires, Argentina &nbsp;·&nbsp; +54 3777 473006 &nbsp;·&nbsp;
+      ignaciodiazpacce6@gmail.com &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/ignaciodiazpacce">linkedin.com/in/ignaciodiazpacce</a>
+    </div>
+  </header>
+
+  <hr class="divider">
+
+  <section>
+    <div class="section-title">Resumen Profesional</div>
+    <div class="summary-box">
+      Ingeniero en electrónica con foco en desarrollo de producto end-to-end — desde hardware y firmware hasta aplicaciones móviles.
+      Construyo y escalo sistemas que conectan dispositivos reales con software, con criterio técnico y visión de negocio.
+      Trabajo con autonomía, hago ownership del resultado y uso herramientas de IA para multiplicar velocidad y calidad de entrega.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Experiencia Profesional</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Product Engineer</span>
+        <span class="job-date">Nov 2024 – Actualidad</span>
+      </div>
+      <div class="job-header">
+        <span class="job-company">Electromedicina Morales S.R.L.</span>
+        <span class="job-location">Buenos Aires</span>
+      </div>
+      <p class="job-intro">Integro el equipo de diseño y desarrollo de dispositivos biomédicos veterinarios, abarcando firmware, software móvil y optimización de producción.</p>
+
+      <div class="sub-section">Desarrollo de software</div>
+      <ul>
+        <li>Impulsé el diseño y desarrollo de una app en Flutter que integra, como primer dispositivo, un electrocardiógrafo veterinario, con la visión de conectar múltiples dispositivos desde una única interfaz. La arquitectura tipo hub sienta las bases para escalar hacia trazabilidad clínica de pacientes (iOS/Android).</li>
+      </ul>
+
+      <div class="sub-section">Firmware</div>
+      <ul>
+        <li>Firmware en STM32 para electrocardiógrafo veterinario. Migración de 1 a 3 canales para mayor capacidad diagnóstica.</li>
+        <li>Mantenimiento correctivo y evolutivo de firmwares existentes de catálogo de productos.</li>
+      </ul>
+
+      <div class="sub-section">Optimización de procesos y producción</div>
+      <ul>
+        <li>Impulsé automatización de documentación técnica</li>
+        <li>Impulsé externalización de fabricación de PCBAs</li>
+        <li>Reactivé uso de herramientas de gestión de proyectos (Redmine)</li>
+        <li>Gestión de adquisiciones para el área de desarrollo</li>
+        <li>Implemento organización documental</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Encargado de Diseño, Desarrollo y Producción</span>
+        <span class="job-date">Abr 2022 – Oct 2024</span>
+      </div>
+      <div class="job-header">
+        <span class="job-company">StandFit Equipment</span>
+        <span class="job-location">Goya, Corrientes</span>
+      </div>
+      <p class="job-intro">Construí desde cero la infraestructura operativa de una empresa de equipamiento fitness: diseño de producto, procesos productivos, inventario y sistemas de control.</p>
+      <ul>
+        <li>Gestioné un portfolio de +30 modelos de equipamiento fitness, con diseño original y rediseño basado en feedback de clientes (Voice of Customer).</li>
+        <li>Diseñé el layout productivo en 6 estaciones. Tripliqué la capacidad de producción de 1–2 a 6 máquinas/mes con el mismo headcount.</li>
+        <li>Lideré y formé un equipo de 4 personas sin experiencia previa, delegando progresivamente la coordinación diaria a un team lead operativo.</li>
+        <li>Implementé inventario digitalizado con código de barras (+100 SKUs), reemplazando control manual en papel.</li>
+        <li>Desarrollé desde cero: órdenes de producción, BOM costing, planificación de compras, control de cuentas y mantenimiento preventivo.</li>
+        <li>Reduje costos de componentes en +100% sustituyendo mecanizado por manufactura aditiva (impresión 3D).</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Diseñador de PCB (Práctica Profesional)</span>
+        <span class="job-date">Dic 2021 – Mar 2022</span>
+      </div>
+      <div class="job-header">
+        <span class="job-company">Voltu Motor Inc.</span>
+        <span class="job-location">Paraná, Entre Ríos</span>
+      </div>
+      <ul>
+        <li>Diseño de placas electrónicas para testeo de BMS en movilidad eléctrica. Validaciones eléctricas y modelado 3D.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Educación</div>
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Ingeniero en Electrónica</span>
+        <span class="job-date">2016 – 2023</span>
+      </div>
+      <div class="job-header">
+        <span class="job-company">Universidad Nacional del Nordeste (UNNE)</span>
+        <span class="job-location">Corrientes</span>
+      </div>
+      <ul>
+        <li>Becario GER: control en sistemas fotovoltaicos conectados a red (2021–2022). Adscripto Electrotecnia II (2021).</li>
+      </ul>
+      <p style="font-size:9.5pt; color:#444; margin-top:0.3rem;">
+        <strong>Complementaria:</strong> Inglés Técnico (UNNE) · Oratoria y Expresión (UNNE) · Project Management & SysML (en curso, Udemy)
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Habilidades Técnicas</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">Firmware & Embedded</span>
+        <span class="skill-value">C embebido (STM32 ARM Cortex-M, ATmega328P), FreeRTOS, UART, SPI, I2C, BLE</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Desarrollo Móvil & Web</span>
+        <span class="skill-value">Flutter/Dart, Android Studio, React, Vite, Tailwind CSS</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Diseño Electrónico</span>
+        <span class="skill-value">KiCad (avanzado), Proteus, LTspice, MultiSim</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Modelado 3D</span>
+        <span class="skill-value">Fusion 360, SolidWorks, Cura, OrcaSlicer, impresión 3D</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Automatización</span>
+        <span class="skill-value">Python, Google Apps Script, Node.js, Google Sheets API</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">AI & Dev Workflow</span>
+        <span class="skill-value">Claude Code (CLI), Cursor, MCP Servers (Vercel · GitHub · Supabase), Vercel, Supabase</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Herramientas</span>
+        <span class="skill-value">Git, Bitbucket, GitHub, Redmine, Matlab, Simulink, Google Workspace, MS Office</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Competencias de Gestión</div>
+    <div class="pills">
+      <span class="pill">Liderazgo de equipos</span>
+      <span class="pill">Coordinación multidisciplinaria</span>
+      <span class="pill">Gestión de stakeholders</span>
+      <span class="pill">Mejora continua</span>
+      <span class="pill">Planificación de producción</span>
+      <span class="pill">Change Management</span>
+      <span class="pill">Documentación técnica</span>
+      <span class="pill">Supply chain</span>
+      <span class="pill">BOM costing</span>
+      <span class="pill">Ownership</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Idiomas e Información Adicional</div>
+    <div class="info-row">
+      <div class="info-item"><span class="info-label">Español</span> Nativo</div>
+      <div class="info-item"><span class="info-label">Inglés</span> Básico (en formación activa – B1)</div>
+      <div class="info-item"><span class="info-label">Disponibilidad</span> Remoto · Híbrido CABA</div>
+      <div class="info-item"><span class="info-label">Licencia</span> A.2 y B.2</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
