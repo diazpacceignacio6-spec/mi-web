@@ -363,6 +363,16 @@
       line-height: 1.55;
     }
 
+    .card h3 a {
+      color: inherit;
+      text-decoration-color: #b91c1c;
+      text-underline-offset: 3px;
+    }
+
+    .card h3 a:hover {
+      color: #b91c1c;
+    }
+
     .card .tag {
       display: inline-block;
       margin-top: 0.7rem;
@@ -585,9 +595,14 @@
   <p class="section-lead" data-i18n="projects_lead"></p>
   <div class="cards">
     <article class="card">
-      <h3>NutriBalanz</h3>
+      <h3><a href="https://nutribalanz.com.ar" target="_blank" rel="noopener">NutriBalanz</a></h3>
       <p data-i18n="nb_text"></p>
       <span class="tag" data-i18n="nb_tag"></span>
+    </article>
+    <article class="card">
+      <h3><a href="https://nutrilinatips.com.ar" target="_blank" rel="noopener">Nutrilina Tips</a></h3>
+      <p data-i18n="nt_text"></p>
+      <span class="tag">Astro · Vercel · SEO</span>
     </article>
   </div>
   <p class="side-note" data-i18n="solvo_note"></p>
@@ -683,6 +698,7 @@
       projects_lead: "Products I built that real people already use.",
       nb_text: "Nutrition management platform with separate professional and patient views, appointments, and push and email reminders.",
       nb_tag: "In real use · launching soon",
+      nt_text: "Website for a nutrition consultancy, built end to end: pages per condition, blog, FAQ and structured data for search engines.",
       solvo_note: "Also: Solvo, my own personal management tool.",
       log_title: "Log",
       log2_date: "Oct 2026",
@@ -718,6 +734,7 @@
       projects_lead: "Productos que construí y que personas reales ya usan.",
       nb_text: "Plataforma de gestión nutricional con vistas separadas para profesional y paciente, turnos y recordatorios por push y email.",
       nb_tag: "En uso real · próximo lanzamiento",
+      nt_text: "Sitio web para una consultora de nutrición, desarrollado de punta a punta: páginas por patología, blog, preguntas frecuentes y datos estructurados para buscadores.",
       solvo_note: "También: Solvo, mi herramienta propia de gestión personal.",
       log_title: "Bitácora",
       log2_date: "Oct 2026",
