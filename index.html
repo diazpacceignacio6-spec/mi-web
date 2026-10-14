@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <script>document.documentElement.classList.add('js');</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <meta name="description" content="Ignacio Diaz Pacce — Electronics Engineer with product development experience. Websites, web apps, mobile apps and connected devices, from idea to real users.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ignacio Diaz Pacce — Electronics Engineer with product development experience. Mobile apps, web apps and PWAs, connected devices and websites, from idea to real users.">
   <meta name="author" content="Ignacio Diaz Pacce">
   <meta name="theme-color" content="#f5f1e8">
   <link rel="canonical" href="https://ignaciodiazpacce.com.ar/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ignaciodiazpacce.com.ar/">
   <meta property="og:title" content="Ignacio Diaz Pacce — Product & Software Development">
-  <meta property="og:description" content="Websites, web apps, mobile apps and connected devices, from idea to real users.">
+  <meta property="og:description" content="Mobile apps, web apps and PWAs, connected devices and websites, from idea to real users.">
   <title>Ignacio Diaz Pacce — Product & Software Development</title>
   <script type="application/ld+json">
   {
@@ -31,6 +31,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      /* Mínimo táctil: 44px (guía WCAG 2.5.5 / 44dp de móvil) */
+      --tap-min: 44px;
+      /* Piso de tamaño de texto legible en celular: 12px */
+      --text-min: 0.75rem;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -70,9 +77,9 @@
 
     .lang-switcher {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.25rem;
       background: rgba(237, 231, 216, 0.6);
-      padding: 0.25rem;
+      padding: 0.15rem;
       border-radius: 40px;
       border: 1px solid #e2d9ce;
     }
@@ -80,6 +87,8 @@
     .lang-btn {
       background: none;
       border: none;
+      min-width: var(--tap-min);
+      min-height: var(--tap-min);
       padding: 0.25rem 0.7rem;
       border-radius: 30px;
       font-size: 0.75rem;
@@ -95,14 +104,13 @@
     }
 
     .hero {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.25rem;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 5rem 1.2rem;
+      padding: 4rem 1.2rem 2rem;
     }
 
     .hero-right {
@@ -112,8 +120,8 @@
     }
 
     .hero-photo {
-      width: 180px;
-      height: 180px;
+      width: 130px;
+      height: 130px;
       object-fit: cover;
       border-radius: 50%;
       box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.12);
@@ -125,7 +133,7 @@
 
     .badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-size: var(--text-min);
       color: #b91c1c;
       background: rgba(185, 28, 28, 0.08);
       border: 1px solid rgba(185, 28, 28, 0.2);
@@ -147,7 +155,9 @@
       color: #b91c1c;
     }
 
+    /* En celular el subtítulo repite la etiqueta y el primer párrafo: se muestra desde tablet */
     .subtitle {
+      display: none;
       font-size: 0.9rem;
       color: #7a7265;
       margin-bottom: 0.25rem;
@@ -181,6 +191,31 @@
       text-align: left;
     }
 
+    /* En celular el párrafo largo se pliega tras "Ver más". Sin JS se ve completo */
+    .js #description2:not(.open) {
+      display: none;
+    }
+
+    .more-btn {
+      display: none;
+      align-items: center;
+      min-height: var(--tap-min);
+      padding: 0 0.2rem;
+      background: none;
+      border: none;
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #b91c1c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .js .more-btn {
+      display: inline-flex;
+    }
+
     .description strong {
       color: #b91c1c;
       font-weight: 500;
@@ -209,6 +244,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      min-height: var(--tap-min);
       gap: 0.4rem;
       padding: 0.55rem 1.2rem;
       border-radius: 40px;
@@ -243,6 +279,7 @@
     .contact-link {
       display: inline-flex;
       align-items: center;
+      min-height: var(--tap-min);
       gap: 0.5rem;
       padding: 0.55rem 1.2rem;
       background: #ede7d8;
@@ -300,6 +337,23 @@
       opacity: 0;
     }
 
+    .js .section h2[data-reveal]:not(.visto) {
+      background-size: 0 3px;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      z-index: 101;
+      background: #b91c1c;
+      transform: scaleX(0);
+      transform-origin: left;
+      pointer-events: none;
+    }
+
     .js [data-reveal].visto {
       animation: entra-sube .6s cubic-bezier(.2, .7, .2, 1) both;
       animation-delay: var(--delay, 0s);
@@ -314,6 +368,15 @@
       .hero-right::before {
         animation: none;
       }
+
+      .section h2,
+      .card {
+        transition: none;
+      }
+
+      .card:hover {
+        transform: none;
+      }
     }
 
     .section {
@@ -325,6 +388,10 @@
     }
 
     .section h2 {
+      width: fit-content;
+      padding-bottom: 4px;
+      background: linear-gradient(90deg, #b91c1c, #f08a2c) 0 100% / 100% 3px no-repeat;
+      transition: background-size .8s cubic-bezier(.2, .7, .2, 1) .35s;
       font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.5px;
@@ -352,6 +419,16 @@
       padding: 1.2rem;
     }
 
+    .card {
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #b91c1c;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.18);
+    }
+
     .card h3 {
       font-size: 1rem;
       font-weight: 600;
@@ -361,6 +438,13 @@
     .card p {
       font-size: 0.85rem;
       line-height: 1.55;
+    }
+
+    /* Amplía el área táctil de un enlace en línea sin cambiar el layout */
+    .tap-target {
+      display: inline-block;
+      padding: 14px 6px;
+      margin: -14px -6px;
     }
 
     .card h3 a {
@@ -373,6 +457,11 @@
       color: #b91c1c;
     }
 
+    .side-note a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
+
     .card .tag a {
       color: inherit;
       text-underline-offset: 3px;
@@ -382,7 +471,7 @@
       display: inline-block;
       margin-top: 0.7rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-size: var(--text-min);
       color: #b91c1c;
     }
 
@@ -410,7 +499,7 @@
 
     .log-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: var(--text-min);
       color: #b91c1c;
       flex: 0 0 9.5rem;
       padding-top: 0.15rem;
@@ -457,7 +546,7 @@
       text-align: center;
       padding: 1.5rem;
       border-top: 1px solid #e2d9ce;
-      font-size: 0.7rem;
+      font-size: var(--text-min);
       color: #7a7265;
       margin-top: auto;
     }
@@ -473,6 +562,8 @@
       }
 
       .hero {
+        min-height: 100vh; /* respaldo para navegadores sin svh */
+        min-height: 100svh;
         flex-direction: row;
         align-items: center;
         gap: 3rem;
@@ -489,6 +580,18 @@
         max-width: 320px;
         height: auto;
         border-radius: 30px;
+      }
+
+      .subtitle {
+        display: block;
+      }
+
+      .js #description2:not(.open) {
+        display: block;
+      }
+
+      .js .more-btn {
+        display: none;
       }
 
       .hero-left {
@@ -530,6 +633,8 @@
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <nav id="navbar">
   <div class="lang-switcher">
     <button class="lang-btn" data-lang="en">EN</button>
@@ -549,6 +654,7 @@
     <div class="availability">🌍 Remote · Hybrid</div>
     <div class="description" id="description1"></div>
     <div class="description" id="description2"></div>
+    <button class="more-btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="description2"></button>
 
     <div class="contact-section">
       <div class="contact-row">
@@ -577,20 +683,20 @@
   <p class="section-lead" data-i18n="services_lead"></p>
   <div class="cards">
     <article class="card">
-      <h3 data-i18n="svc_web_title"></h3>
-      <p data-i18n="svc_web_text"></p>
+      <h3 data-i18n="svc_mobile_title"></h3>
+      <p data-i18n="svc_mobile_text"></p>
     </article>
     <article class="card">
       <h3 data-i18n="svc_app_title"></h3>
       <p data-i18n="svc_app_text"></p>
     </article>
     <article class="card">
-      <h3 data-i18n="svc_mobile_title"></h3>
-      <p data-i18n="svc_mobile_text"></p>
-    </article>
-    <article class="card">
       <h3 data-i18n="svc_iot_title"></h3>
       <p data-i18n="svc_iot_text"></p>
+    </article>
+    <article class="card">
+      <h3 data-i18n="svc_web_title"></h3>
+      <p data-i18n="svc_web_text"></p>
     </article>
   </div>
 </section>
@@ -600,22 +706,22 @@
   <p class="section-lead" data-i18n="projects_lead"></p>
   <div class="cards">
     <article class="card">
-      <h3><a href="https://nutribalanz.com.ar" target="_blank" rel="noopener">NutriBalanz</a></h3>
+      <h3><a class="tap-target" href="https://nutribalanz.com.ar" target="_blank" rel="noopener">NutriBalanz</a></h3>
       <p data-i18n="nb_text"></p>
       <span class="tag" data-i18n="nb_tag"></span>
     </article>
     <article class="card">
-      <h3>FaunX</h3>
-      <p data-i18n="fx_text"></p>
-      <span class="tag"><a href="https://apps.apple.com/us/app/faunx/id6759269179" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.panimalproj.pasaporteanimal&amp;hl=es_CR" target="_blank" rel="noopener">Google Play</a></span>
-    </article>
-    <article class="card">
-      <h3><a href="https://nutrilinatips.com.ar" target="_blank" rel="noopener">Nutrilina Tips</a></h3>
+      <h3><a class="tap-target" href="https://nutrilinatips.com.ar" target="_blank" rel="noopener">Nutrilina Tips</a></h3>
       <p data-i18n="nt_text"></p>
       <span class="tag">Astro · Vercel · SEO</span>
     </article>
   </div>
   <p class="side-note" data-i18n="solvo_note"></p>
+  <p class="side-note">
+    <span data-i18n="fx_note"></span>
+    <a class="tap-target" href="https://apps.apple.com/us/app/faunx/id6759269179" target="_blank" rel="noopener">App Store</a> ·
+    <a class="tap-target" href="https://play.google.com/store/apps/details?id=com.panimalproj.pasaporteanimal&amp;hl=es_CR" target="_blank" rel="noopener">Google Play</a>
+  </p>
 </section>
 
 <section class="section" id="log">
@@ -693,13 +799,13 @@
     en: {
       badge: "Product & Software Development · IoT & MedTech",
       subtitle: "Electronics Engineer · Product Development & Project Management",
-      description1: "Electronics Engineer with hands-on <strong>product development</strong> experience. I design and build <strong>websites, web apps and connected devices</strong> — from the first idea to real people using it.",
+      description1: "Electronics Engineer with hands-on <strong>product development</strong> experience. I build <strong>PWAs, mobile apps connected to real devices and websites</strong>, from the conception of the idea to its implementation.",
       services_title: "Services",
       services_lead: "I take a project from definition to a working product, covering the product side and the technical side.",
       svc_web_title: "Websites",
       svc_web_text: "Fast, clear sites that explain what you do and are easy for search engines and people to find.",
-      svc_app_title: "Web apps",
-      svc_app_text: "Custom management systems for businesses and professionals: users, roles, data and reminders.",
+      svc_app_title: "Web apps & PWAs",
+      svc_app_text: "Custom management systems for businesses and professionals: users, roles, data and reminders, installable on the phone as a PWA.",
       svc_mobile_title: "Mobile apps",
       svc_mobile_text: "iOS and Android apps built with Flutter, including connection to external devices.",
       svc_iot_title: "Connected devices",
@@ -708,7 +814,7 @@
       projects_lead: "Products I built that real people already use.",
       nb_text: "Nutrition management platform with separate professional and patient views, appointments, and push and email reminders.",
       nb_tag: "In real use · launching soon",
-      fx_text: "App to manage a pet's records: profile, QR digital credential and medical history exportable to PDF. I'm part of the development team.",
+      fx_note: "I'm currently part of the development team of FaunX, a digital pet passport app:",
       nt_text: "Website for a nutrition consultancy, built end to end: pages per condition, blog, FAQ and structured data for search engines.",
       solvo_note: "Also: Solvo, my own personal management tool.",
       log_title: "Log",
@@ -725,18 +831,20 @@
       chip_pm: "Product management",
       chip_project: "Project management",
       description2: "Led the design and development of a hub-architecture Flutter app to connect multiple veterinary devices from a single interface. The first device integrated was an electrocardiograph, establishing the foundation to scale toward clinical patient traceability (iOS/Android).",
+      more_open: "Read more",
+      more_close: "Read less",
       cv_btn: "Download CV"
     },
     es: {
       badge: "Producto y Desarrollo de Software · IoT & MedTech",
       subtitle: "Ingeniero en Electrónica · Desarrollo de Producto y Gestión de Proyectos",
-      description1: "Ingeniero en Electrónica con experiencia en <strong>desarrollo de producto</strong>. Diseño y construyo <strong>sitios web, aplicaciones web y dispositivos conectados</strong> — desde la primera idea hasta que lo usan personas reales.",
+      description1: "Ingeniero en Electrónica con experiencia en <strong>desarrollo de producto</strong>. Construyo <strong>PWAs, apps móviles conectadas a dispositivos reales y sitios web</strong>, desde la concepción de la idea hasta la implementación.",
       services_title: "Servicios",
       services_lead: "Llevo un proyecto desde la definición hasta un producto funcionando, cubriendo la parte de producto y la parte técnica.",
       svc_web_title: "Sitios web",
       svc_web_text: "Sitios rápidos y claros que explican lo que hacés y son fáciles de encontrar, tanto para buscadores como para personas.",
-      svc_app_title: "Aplicaciones web",
-      svc_app_text: "Sistemas de gestión a medida para negocios y profesionales: usuarios, roles, datos y recordatorios.",
+      svc_app_title: "Aplicaciones web y PWA",
+      svc_app_text: "Sistemas de gestión a medida para negocios y profesionales: usuarios, roles, datos y recordatorios, instalables en el celular como PWA.",
       svc_mobile_title: "Apps móviles",
       svc_mobile_text: "Apps iOS y Android con Flutter, incluyendo conexión con dispositivos externos.",
       svc_iot_title: "Dispositivos conectados",
@@ -745,7 +853,7 @@
       projects_lead: "Productos que construí y que personas reales ya usan.",
       nb_text: "Plataforma de gestión nutricional con vistas separadas para profesional y paciente, turnos y recordatorios por push y email.",
       nb_tag: "En uso real · próximo lanzamiento",
-      fx_text: "App para gestionar la información de una mascota: perfil, credencial digital con QR e historial médico exportable a PDF. Formo parte del equipo de desarrollo.",
+      fx_note: "Actualmente formo parte del equipo de desarrollo de FaunX, una app de pasaporte digital para mascotas:",
       nt_text: "Sitio web para una consultora de nutrición, desarrollado de punta a punta: páginas por patología, blog, preguntas frecuentes y datos estructurados para buscadores.",
       solvo_note: "También: Solvo, mi herramienta propia de gestión personal.",
       log_title: "Bitácora",
@@ -762,6 +870,8 @@
       chip_pm: "Gestión de producto",
       chip_project: "Gestión de proyectos",
       description2: "Lideré el diseño y desarrollo de una app en Flutter con arquitectura tipo hub para conectar múltiples dispositivos veterinarios desde una única interfaz. El primer dispositivo integrado fue un electrocardiógrafo, estableciendo las bases para escalar hacia trazabilidad clínica de pacientes (iOS/Android).",
+      more_open: "Ver más",
+      more_close: "Ver menos",
       cv_btn: "Descargar CV"
     }
   };
@@ -773,6 +883,20 @@
     cvLink.href = lang === 'en' ? './CV_Ignacio_Diaz_Pacce_EN.pdf' : './CV_Ignacio_Diaz_Pacce_ES.pdf';
     cvLink.textContent = translations[lang].cv_btn;
   }
+
+  const moreBtn = document.getElementById('moreBtn');
+  const description2 = document.getElementById('description2');
+
+  function updateMoreBtn() {
+    const open = description2.classList.contains('open');
+    moreBtn.textContent = translations[currentLang][open ? 'more_close' : 'more_open'];
+    moreBtn.setAttribute('aria-expanded', String(open));
+  }
+
+  moreBtn.addEventListener('click', () => {
+    description2.classList.toggle('open');
+    updateMoreBtn();
+  });
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -790,6 +914,7 @@
     });
 
     updateCVLink(lang);
+    updateMoreBtn();
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -801,8 +926,11 @@
   });
 
   const nav = document.getElementById('navbar');
+  const progress = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = 'scaleX(' + (scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0) + ')';
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
