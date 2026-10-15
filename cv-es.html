@@ -116,9 +116,13 @@
     .info-label { font-weight: 600; }
 
     @media print {
-      body { font-size: 10pt; }
-      .page { padding: 1.4rem 1.8rem; max-width: 100%; }
-      @page { margin: 1.2cm 1.5cm; size: A4; }
+      body { font-size: 9.7pt; }
+      .page { padding: 0.8rem 1.4rem; max-width: 100%; }
+      @page { margin: 1cm 1.3cm; size: A4; }
+      ul li { font-size: 9.6pt; margin-bottom: 0.12rem; line-height: 1.38; }
+      .summary-box, .job-intro { font-size: 9.6pt; }
+      .job { margin-bottom: 0.7rem; }
+      section { margin-bottom: 0.75rem; }
       a { color: #1a56a0 !important; }
     }
   </style>
@@ -128,7 +132,7 @@
 
   <header class="header">
     <h1>IGNACIO JAVIER DIAZ PACCE</h1>
-    <div class="tagline">Technical Product Manager | IoT & MedTech | Hardware to Mobile</div>
+    <div class="tagline">Ingeniero de Producto | IoT & MedTech | Hardware to Mobile</div>
     <div class="contact">
       Buenos Aires, Argentina &nbsp;·&nbsp; +54 3777 473006 &nbsp;·&nbsp;
       ignaciodiazpacce6@gmail.com &nbsp;·&nbsp;
@@ -143,7 +147,7 @@
     <div class="summary-box">
       Ingeniero en electrónica con foco en desarrollo de producto end-to-end — desde hardware y firmware hasta aplicaciones móviles.
       Construyo y escalo sistemas que conectan dispositivos reales con software, con criterio técnico y visión de negocio.
-      Trabajo con autonomía, hago ownership del resultado y uso herramientas de IA para multiplicar velocidad y calidad de entrega.
+      Trabajo con autonomía, me hago cargo del resultado y uso herramientas de IA para incrementar la velocidad y la calidad de entrega.
     </div>
   </section>
 
@@ -152,7 +156,7 @@
 
     <div class="job">
       <div class="job-header">
-        <span class="job-title">Product Engineer</span>
+        <span class="job-title">Ingeniero de Producto — Firmware, Software y Desarrollo</span>
         <span class="job-date">Nov 2024 – Actualidad</span>
       </div>
       <div class="job-header">
@@ -163,7 +167,10 @@
 
       <div class="sub-section">Desarrollo de software</div>
       <ul>
-        <li>Impulsé el diseño y desarrollo de una app en Flutter que integra, como primer dispositivo, un electrocardiógrafo veterinario, con la visión de conectar múltiples dispositivos desde una única interfaz. La arquitectura tipo hub sienta las bases para escalar hacia trazabilidad clínica de pacientes (iOS/Android).</li>
+        <li>Impulsé el diseño y desarrollo de EVET Hub, una app Flutter (iOS/Android) con arquitectura tipo hub para conectar varios dispositivos; el primero integrado es un electrocardiógrafo veterinario.</li>
+        <li>Desarrollé una PWA de cotización y captación de leads para exposiciones (React, TypeScript, Supabase), con QR por producto, ROI por evento, modo offline y sincronización con la base SQL del ERP de la empresa.</li>
+        <li>Desarrollé una app de escritorio (Python, PyQt5, SQLite) para grabar firmware por ST-Link/SWD y memorias SPI, con grabación por lotes, login por rol e instalador para Windows.</li>
+        <li>Implementé la trazabilidad de producción: cada grabación queda registrada y sincronizada en red, y se cruza con la base SQL del ERP para saber qué placa tiene firmware y a qué cliente se vendió el equipo.</li>
       </ul>
 
       <div class="sub-section">Firmware</div>
@@ -174,11 +181,10 @@
 
       <div class="sub-section">Optimización de procesos y producción</div>
       <ul>
-        <li>Impulsé automatización de documentación técnica</li>
-        <li>Impulsé externalización de fabricación de PCBAs</li>
+        <li>Impulsé la automatización de documentación técnica y la externalización de fabricación de PCBAs</li>
         <li>Reactivé uso de herramientas de gestión de proyectos (Redmine)</li>
-        <li>Gestión de adquisiciones para el área de desarrollo</li>
-        <li>Implemento organización documental</li>
+        <li>Gestión de adquisiciones para desarrollo e implementación de organización documental</li>
+        <li>Armé la estructura del legajo de diseño y definí los requerimientos de un nuevo equipo de magnetoterapia</li>
       </ul>
     </div>
 
@@ -196,9 +202,8 @@
         <li>Gestioné un portfolio de +30 modelos de equipamiento fitness, con diseño original y rediseño basado en feedback de clientes (Voice of Customer).</li>
         <li>Diseñé el layout productivo en 6 estaciones. Tripliqué la capacidad de producción de 1–2 a 6 máquinas/mes con el mismo headcount.</li>
         <li>Lideré y formé un equipo de 4 personas sin experiencia previa, delegando progresivamente la coordinación diaria a un team lead operativo.</li>
-        <li>Implementé inventario digitalizado con código de barras (+100 SKUs), reemplazando control manual en papel.</li>
-        <li>Desarrollé desde cero: órdenes de producción, BOM costing, planificación de compras, control de cuentas y mantenimiento preventivo.</li>
-        <li>Reduje costos de componentes en +100% sustituyendo mecanizado por manufactura aditiva (impresión 3D).</li>
+        <li>Implementé inventario digitalizado con código de barras (+100 SKUs) y desarrollé desde cero órdenes de producción, BOM costing, planificación de compras y mantenimiento preventivo.</li>
+        <li>Reduje costos de componentes sustituyendo mecanizado por manufactura aditiva (impresión 3D).</li>
       </ul>
     </div>
 
@@ -213,6 +218,50 @@
       </div>
       <ul>
         <li>Diseño de placas electrónicas para testeo de BMS en movilidad eléctrica. Validaciones eléctricas y modelado 3D.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">Proyectos y Colaboraciones</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">NutriBalanz</span>
+        <span class="job-location"><a href="https://nutribalanz.com.ar" style="color:#1a56a0;text-decoration:none;">nutribalanz.com.ar</a></span>
+      </div>
+      <ul>
+        <li>Plataforma para nutricionistas, en uso real: vistas de profesional y paciente, turnos y recordatorios push y email. React, TypeScript, Supabase (PostgreSQL con RLS), PWA.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Nutrilina Tips</span>
+        <span class="job-location"><a href="https://nutrilinatips.com.ar" style="color:#1a56a0;text-decoration:none;">nutrilinatips.com.ar</a></span>
+      </div>
+      <ul>
+        <li>Sitio web de una nutricionista con Astro, optimizado para SEO y AEO: datos estructurados JSON-LD, sitemap y llms.txt.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Novha</span>
+        <span class="job-location">Tienda de indumentaria</span>
+      </div>
+      <ul>
+        <li>Sitio en Astro con SEO local y sistema de punto de venta multi-negocio (ventas, caja, stock, cuenta corriente, modo offline).</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">FaunX</span>
+        <span class="job-location">App Store · Google Play</span>
+      </div>
+      <ul>
+        <li>Socio y parte del equipo de desarrollo de una app de pasaporte digital para mascotas (App Store y Google Play). Colaboro en la visión del producto.</li>
       </ul>
     </div>
   </section>
@@ -242,11 +291,11 @@
     <div class="skills-grid">
       <div class="skill-row">
         <span class="skill-label">Firmware & Embedded</span>
-        <span class="skill-value">C embebido (STM32 ARM Cortex-M, ATmega328P), FreeRTOS, UART, SPI, I2C, BLE</span>
+        <span class="skill-value">C embebido (STM32 ARM Cortex-M, ATmega328P), FreeRTOS, UART, SPI, I2C, BLE, STM32CubeProgrammer (ST-Link/SWD)</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">Desarrollo Móvil & Web</span>
-        <span class="skill-value">Flutter/Dart, Android Studio, React, Vite, Tailwind CSS</span>
+        <span class="skill-value">Flutter/Dart, Android Studio, React, TypeScript, Astro, Vite, Tailwind CSS, PWA, SEO/AEO</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">Diseño Electrónico</span>
@@ -258,7 +307,7 @@
       </div>
       <div class="skill-row">
         <span class="skill-label">Automatización</span>
-        <span class="skill-value">Python, Google Apps Script, Node.js, Google Sheets API</span>
+        <span class="skill-value">Python (PyQt5), Node.js, PowerShell, SQL Server, PostgreSQL, SQLite, Google Apps Script, Google Sheets API</span>
       </div>
       <div class="skill-row">
         <span class="skill-label">AI & Dev Workflow</span>
@@ -281,6 +330,7 @@
       <span class="pill">Planificación de producción</span>
       <span class="pill">Change Management</span>
       <span class="pill">Documentación técnica</span>
+      <span class="pill">Trazabilidad de producción</span>
       <span class="pill">Supply chain</span>
       <span class="pill">BOM costing</span>
       <span class="pill">Ownership</span>
@@ -291,7 +341,7 @@
     <div class="section-title">Idiomas e Información Adicional</div>
     <div class="info-row">
       <div class="info-item"><span class="info-label">Español</span> Nativo</div>
-      <div class="info-item"><span class="info-label">Inglés</span> Básico (en formación activa – B1)</div>
+      <div class="info-item"><span class="info-label">Inglés</span> B1 (en formación)</div>
       <div class="info-item"><span class="info-label">Disponibilidad</span> Remoto · Híbrido CABA</div>
       <div class="info-item"><span class="info-label">Licencia</span> A.2 y B.2</div>
     </div>
